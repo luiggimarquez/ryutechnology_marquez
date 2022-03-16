@@ -11,8 +11,7 @@ header{
     display:flex;
     align-items: center;
     justify-content: flex-end;
-    /*height: 100px;
-    background-color: rgb(0 120 122);*/
+   
 }
 
 .menuNav {
@@ -21,7 +20,7 @@ header{
     list-style-type: none;
     font-size: 1.25rem;
 }    
-.menuNav a{
+.menuNav .a{
         
     text-decoration: none;
     color: snow;
@@ -33,6 +32,23 @@ header{
     color:rgb(199, 192, 192);
 }
 
+.nav-link {
+
+    
+    display: block;
+    padding: 0;
+    color: snow;
+    text-decoration: none;
+    transition: none;
+}
+
+.nav-link a {
+
+    color: snow;
+    text-decoration: none;
+    transition: none;
+}
+
 .alineadorLogo{
 
     display: flex;
@@ -41,19 +57,17 @@ header{
 
 .alineadorLogo h1{ 
     
-    /*height:100px;*/
     text-align: right;
-    /*padding: 20px 0 20px 0;*/
     color: snow;
-    font-size: 50px;
-    /*font-family: 'Anurati Normal';*/
+    font-size: 40px;
     align-self: center;
+    padding: 19px;
 }
     
-.logoHeader { /* logo de la empresa para el header*/
+.logoHeader {
 
-    width: 6.25rem;
-    margin-top: 19px;
+    width: 5.25rem;
+    margin-top: 5px;
     transition: 0.5s;
 }
 
@@ -61,4 +75,19 @@ header{
 
     transform: scale(1.05);
 }
-   
+
+.span{
+
+    font-size: small;
+}
+
+.nav-link:focus, .nav-link:hover {
+    color: #cad6f0;
+}
+
+.dropdown-item a{
+
+    color: green  important!;
+}
+
+
