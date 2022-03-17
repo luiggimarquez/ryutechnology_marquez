@@ -1,6 +1,7 @@
 import "./navBar.css"
 import logo1 from "./logo1.png"
 import { NavDropdown } from 'react-bootstrap'
+import CartWidget from "../CartWidget/CartWidget"
 
 const NavBar = () => {  
 
@@ -31,6 +32,8 @@ const NavBar = () => {
                     <li><a className="a" href="#">Contacto</a></li>
                     
                 </ul>
+
+                <CartWidget />
 
             </nav>
 
