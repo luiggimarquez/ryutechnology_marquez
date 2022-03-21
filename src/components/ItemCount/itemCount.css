@@ -38,10 +38,18 @@
     width: 15%;
     align-self: center;
     border-radius: 10px;
-    margin: 5px;
+    margin: 15px;
 }
 
 .botonCount:active{
 
     background-color:rgb(10, 163, 156);
+}
+
+.alineaBoton{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

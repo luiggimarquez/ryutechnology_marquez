@@ -1,6 +1,5 @@
 import "./itemListContainer.css"
 
-
 const   ItemListContainer = ({saludo, children}) => {
 
     return(
@@ -9,11 +8,9 @@ const   ItemListContainer = ({saludo, children}) => {
 
             <h1 className="h1">{saludo}</h1>
             {children}
-      
 
         </div>
     )
-
 }
 
 export default ItemListContainer

@@ -1,9 +1,13 @@
 import { useState } from "react";
 import "./itemCount.css"
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+let carrito1=0;
 
-const ItemCount = ({initial = 0, stock, OnAdd}) => {
+const ItemCount = ({initial = 1, stock, OnAdd}) => {
 
-    const [count,setCount] = useState(initial);
+    const [count,setCount] = useState(initial); //contador de los botones
+    const [carrito,setCarrito] = useState(stock); //contador de la cantidad de stock
 
     const incrementar = () =>{
 
@@ -12,15 +16,14 @@ const ItemCount = ({initial = 0, stock, OnAdd}) => {
 
     const decrementar = () =>{
 
-        (count > 0) && setCount(count - 1);
-
+        (count > 1) && setCount(count - 1);
     }
 
     const alert = () =>{
 
         const Toast = Swal.mixin({
             toast: true,
-            position: 'top-end',
+            position: 'center',
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
@@ -32,10 +35,22 @@ const ItemCount = ({initial = 0, stock, OnAdd}) => {
           
           Toast.fire({
             icon: 'info',
-            title: 'Has excedido el stock'
-          })
+            title: 'Cantidades insuficientes o has excedido el stock'
+        })
     }
 
+    const botonAgregar = () => {
+        
+        if(count <= carrito){ 
+            
+            OnAdd(count)
+            setCarrito(carrito-count)
+            
+        }else{
+
+          alert()  
+        } 
+    }
 
     return(
 
@@ -43,16 +58,18 @@ const ItemCount = ({initial = 0, stock, OnAdd}) => {
 
         <div className="boton">
 
-            <button className="botonCount" onClick={incrementar} > + </button>
-            <p>{count}</p>
-            <button className="botonCount" onClick={decrementar} > - </button> 
-            <button className="botonCarrito" onClick={() => (count < stock) ? OnAdd(count) : alert()}>Agregar al carrito</button>
+            <div className="alineaBoton">
+                <button className="botonCount" onClick={incrementar} > + </button>
+                <p>{count}</p>
+                <button className="botonCount" onClick={decrementar} > - </button>
+            </div>
+            <button className="botonCarrito" onClick={() => {botonAgregar()}}>Agregar al carrito</button>
+            <p>Stock disponible: {carrito}</p>
 
         </div>
     </div>
 
     )
-
 }
 
 export default ItemCount;
