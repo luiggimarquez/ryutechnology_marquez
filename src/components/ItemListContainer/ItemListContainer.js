@@ -19,8 +19,6 @@ const   ItemListContainer = ({saludo, children}) => {
 
     },[])
     
-    console.table(products)
-
     return(
 
         <div>

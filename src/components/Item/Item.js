@@ -12,7 +12,7 @@ const Item = (productos2) =>{
                     <p>Marca: {productos2.marca}</p>
                     <p>Modelo: {productos2.nombre}</p>
                     <p>Categoría: {productos2.categoria}</p>
-                    <button className="">Ver detalle del producto</button>
+                    <button>Ver detalles del producto</button>
                     <p>Stock disponible: {productos2.cantidad}</p>
                   
                 </div>
