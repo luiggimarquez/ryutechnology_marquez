@@ -15,7 +15,7 @@ function App() {
         <div>
             <NavBar />
 
-            <ItemListContainer saludo="Bienvenidos a Ryu Technology">
+            <ItemListContainer saludo="Listado de productos">
 
                 <ItemCount inicial={0} stock={10} OnAdd={OnAdd} />
 
