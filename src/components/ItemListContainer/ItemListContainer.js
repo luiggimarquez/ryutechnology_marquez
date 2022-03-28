@@ -25,17 +25,18 @@ const   ItemListContainer = ({saludo, children}) => {
             setLoading(false)
         })
 
-        return (() =>{
-
-            setProducts([]);
-
-        })
-
     },[])
 
-    if(loading == true){
+    if(loading){
 
-        <h1>loading</h1>
+        return (
+
+            <div className="loaderContainer">
+                <div className="loader"></div>
+                <p>Loading info ...</p>
+            </div>
+
+        )
     }
     
     return(

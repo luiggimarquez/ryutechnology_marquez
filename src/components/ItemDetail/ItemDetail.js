@@ -1,4 +1,5 @@
 import "./itemDetail.scss"
+import { Link } from "react-router-dom"
 
 const ItemDetail = ({item}) => {
 
@@ -27,7 +28,10 @@ const ItemDetail = ({item}) => {
 
             </div>
             
-            <div className="detalleDetails">{item.detalle}</div>
+            <div className="detalleDetails">
+                <div>{item.detalle}</div>
+                <Link to="/"> <button className="botonVolver">Volver</button></Link>
+            </div>
 
         </div>
     )

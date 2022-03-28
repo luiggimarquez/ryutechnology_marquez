@@ -22,7 +22,7 @@ const NavBar = () => {
                 <ul className="menuNav">
                         
                     <Link to="/" className="a"><li>Home</li></Link>
-                    <NavDropdown title="Productos" id="basic-nav-dropdown">
+                    <NavDropdown title="Categorías" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#">Cámaras</NavDropdown.Item>
                     <NavDropdown.Item href="#">Switchs</NavDropdown.Item>
                     <NavDropdown.Item href="#">Routers</NavDropdown.Item>
