@@ -1,7 +1,8 @@
-import "./navBar.css"
+import "./navBar.scss"
 import logo1 from "./logo1.png"
 import { NavDropdown } from 'react-bootstrap'
 import CartWidget from "../CartWidget/CartWidget"
+import {Link} from "react-router-dom"
 
 const NavBar = () => {  
 
@@ -11,9 +12,8 @@ const NavBar = () => {
 
             <div className="alineadorLogo">
 
-                <a className="a" href="#">
-                <img src={logo1}  alt="Logo Empresa" className="logoHeader" /></a>
-                <h1>RYU TECHNOLOGY</h1>
+                <Link to="/"><img src={logo1}  alt="Logo Empresa" className="logoHeader" /></Link>
+                <Link to="/" id="h1"><h1>RYU TECHNOLOGY</h1></Link>
 
             </div>
 
@@ -21,7 +21,7 @@ const NavBar = () => {
 
                 <ul className="menuNav">
                         
-                    <li><a className="a" href="#">Home</a></li>
+                    <Link to="/" className="a"><li>Home</li></Link>
                     <NavDropdown title="Productos" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#">Cámaras</NavDropdown.Item>
                     <NavDropdown.Item href="#">Switchs</NavDropdown.Item>
@@ -29,7 +29,7 @@ const NavBar = () => {
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#">Firewalls</NavDropdown.Item>
                     </NavDropdown>
-                    <li><a className="a" href="#">Contacto</a></li>
+                    <Link to="/Contacto" className="a"><li>Contacto</li></Link>
                     
                 </ul>
 

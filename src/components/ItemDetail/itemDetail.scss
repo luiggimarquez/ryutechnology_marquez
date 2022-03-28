@@ -1,0 +1,75 @@
+.contenedorDetails {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 83px;
+    justify-content: center;
+
+    .cardContainerDetails {
+
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 2px 7px 9px 0 rgb(0 0 0 / 20%);
+        transition: 0.3s;
+        border-radius: 10px;
+        margin: 22px;
+        background: #6dbbb787;
+
+        img{
+
+            vertical-align: middle;
+            display: flex;
+            width: 90%;
+            margin-top:25px;
+         
+        }
+
+        p{
+            font-weight: 600;
+            color:#0a7c77;
+            margin-bottom: 10px;
+        }
+
+        #tituloDetail{
+
+            margin:0px;
+            padding: 10px 0;
+        }
+
+        .botonesCarrito{
+
+            color:snow;
+            background: darkcyan;
+            width: 100%;
+            text-align: center;
+
+            .botonesCantidad{
+
+                width: 10%;
+                align-self: center;
+                border-radius: 10px;
+                margin: 15px;
+            }
+
+            .botonAdd{
+
+                @extend .botonesCantidad;
+                width:30%;
+            }
+        }
+    }
+
+    .detalleDetails {
+
+        background: #0096884a;
+        padding: 25px;
+        text-align: justify;
+        line-height: 30px;
+        width: 50%;
+        border-radius: 10px;
+    }
+}

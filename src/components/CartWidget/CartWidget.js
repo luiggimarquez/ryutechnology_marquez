@@ -1,5 +1,5 @@
 import cart from "./cart.png"
-import "./cartWidget.css"
+import "./cartWidget.scss"
 
 const CartWidget = () =>{
 

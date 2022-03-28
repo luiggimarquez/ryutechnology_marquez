@@ -1,0 +1,50 @@
+.buttonContainer{
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+
+    p{
+        text-align: center;
+        padding: 10px;
+        margin: 0px;
+    }
+
+    .boton{
+
+        display: flex;
+        width: 25%;
+        background-color: rgb(77 217 182 / 67%);
+        flex-direction: column;
+        align-self: center;
+
+        .alineaBoton{
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            .botonCount{
+
+                width: 15%;
+                align-self: center;
+                border-radius: 10px;
+                margin: 15px;
+            
+                &:active{
+            
+                    background-color:rgb(10, 163, 156);
+                }
+            }
+        }
+
+        .botonCarrito{
+
+            width: 30%;
+            align-self: center;
+            margin: 10px;
+        }  
+    }
+}
