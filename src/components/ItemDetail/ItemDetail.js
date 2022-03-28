@@ -20,7 +20,6 @@ const ItemDetail = ({item}) => {
                 </div>
                 <p id="tituloDetail">Producto: { item.nombre}</p>
                 <p>Marca: {item.marca}</p>
-                <p>Modelo: {item.nombre}</p>
                 <p>Tipo: {item.tipo}</p>
                 <p>Categoría: {item.categoria}</p>
                 <p>Precio: {item.precio}</p>
