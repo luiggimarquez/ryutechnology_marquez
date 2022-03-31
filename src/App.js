@@ -1,18 +1,11 @@
 import './App.css';
 import NavBar from "./components/NavBar/NavBar.js"
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
-import ItemCount from './components/ItemCount/ItemCount';
 import { BrowserRouter, Routes, Route} from "react-router-dom";
-import Empresa from "./components/Empresa/Empresa"
-import Contacto from "./components/Contacto/Contacto"
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import Footer from "./components/Footer/Footer"
 
 function App() {
-
-    const OnAdd = (cantidad) =>{
-
-        console.log(cantidad);
-    }
 
     return (
 
@@ -23,12 +16,12 @@ function App() {
                 <NavBar />
                 <Routes>
 
-                    <Route path="/about" element={<Empresa/>} />
-                    <Route path= "/" element={<ItemListContainer saludo="Listado de productos"><ItemCount inicial={0} stock={10} OnAdd={OnAdd} /></ItemListContainer>}/>
-                    <Route path="/contacto" element={<Contacto/>} />
+                    <Route path= "/" element={<ItemListContainer saludo="Listado de productos"/>}/>
                     <Route path="/item/:id" element={<ItemDetailContainer/>} />
+                    <Route path="/category/:id" element={<ItemListContainer/>}/>
 
                 </Routes>
+                <Footer />
             
             </BrowserRouter>
 

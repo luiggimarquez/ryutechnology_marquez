@@ -1,17 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./itemCount.scss"
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-let carrito1=0;
+import { useParams } from "react-router-dom";
+import { getStock } from "../../AsyncMock";
 
-const ItemCount = ({initial = 1, stock, OnAdd}) => {
+const ItemCount = ({initial = 1, OnAdd}) => {
 
+    const [stock, setStock] = useState([]);
     const [count,setCount] = useState(initial); //contador de los botones
-    const [carrito,setCarrito] = useState(stock); //contador de la cantidad de stock
+    const [carrito,setCarrito] = useState([]); //contador de la cantidad de stock
+    
+    const { id } = useParams()
 
+    useEffect(()=>{
+
+        getStock(id).then(recibir =>{
+
+            setStock(recibir)
+            setCarrito(recibir.cantidad)
+        })
+
+        return (() => {
+
+            setStock([])
+            setCarrito([])
+        })
+
+    },[id])
+  
     const incrementar = () =>{
 
-       (count < stock) && setCount(count + 1);
+       (count < stock.cantidad) && setCount(count + 1);
     }
 
     const decrementar = () =>{
@@ -56,17 +75,13 @@ const ItemCount = ({initial = 1, stock, OnAdd}) => {
 
     <div className="buttonContainer">
 
-        <div className="boton">
-
-            <div className="alineaBoton">
-                <button className="botonCount" onClick={incrementar} > + </button>
-                <p>{count}</p>
-                <button className="botonCount" onClick={decrementar} > - </button>
-            </div>
-            <button className="botonCarrito" onClick={() => {botonAgregar()}}>Agregar al carrito</button>
-            <p>Stock disponible: {carrito}</p>
-
+        <div className="botonesCarrito">
+            <button className="botonesCantidad" onClick={decrementar}>-</button>
+            <span>{count}</span>
+            <button className="botonesCantidad" onClick={incrementar}>+</button>
+            <button className="botonAdd" onClick={() => {botonAgregar()}}>Agregar al carrito</button>
         </div>
+        
     </div>
 
     )

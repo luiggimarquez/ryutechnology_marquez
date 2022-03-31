@@ -1,31 +1,56 @@
 import "./itemListContainer.scss"
 import ItemList from "../ItemList/ItemList"
-import { getProducts } from "../../AsyncMock"
+import { getCategoryById, getProducts } from "../../AsyncMock"
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom"
 
 
-const   ItemListContainer = ({saludo, children}) => {
+const   ItemListContainer = ({saludo}) => {
 
-    const[products,setProducts] =useState([])
+    const { id } = useParams()
+    const[products,setProducts] =useState([]);
     const[loading, setLoading] = useState(true);
 
     useEffect(() => {
 
-        setLoading(true)
-        getProducts().then(recibir =>{
+        if(id){
 
-            setProducts(recibir)
+            setLoading(true);
+            getCategoryById(id).then (recibir =>{
 
-        }).catch( error =>{
+                setProducts(recibir);
+            }).catch(error =>{
+
+                console.log(error);
+            }).finally(()=>{
+
+                setLoading(false)
+            })
             
-            console.log(error)
 
-        }).finally( () => {
+        }else{
 
-            setLoading(false)
-        })
+            
+            setLoading(true)
+            getProducts().then(recibir =>{
 
-    },[])
+                setProducts(recibir)
+
+            }).catch( error =>{
+                
+                console.log(error)
+
+            }).finally( () => {
+
+                setLoading(false)
+            })
+        }
+
+        return (() => {
+            setProducts([])
+        }) 
+
+    },[id])
 
     if(loading){
 
@@ -35,7 +60,6 @@ const   ItemListContainer = ({saludo, children}) => {
                 <div className="loader"></div>
                 <p>Loading info ...</p>
             </div>
-
         )
     }
     
@@ -45,7 +69,6 @@ const   ItemListContainer = ({saludo, children}) => {
 
             <h1 className="h1">{saludo}</h1>
             <ItemList products={products}/>
-            {children}
             
         </div>
     )

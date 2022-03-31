@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# Ryu Technology
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este site es de una empresa dedicada al rubro tecnológico de la ingeniería de redes y su aplicación en el ámbito de comunicaciones, seguridad, automatización y domótica,
+tanto a nivel empresarial como en los hogares. Esta versión desarrollada en **React.js** está enfocada en productos de networking y cámaras de vigilancia, para un e-commerce.
 
-## Available Scripts
+![web principal](./ryutech.jpg)
 
-In the project directory, you can run:
 
-### `npm start`
+## Comenzando 🚀
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Este es un proyecto público, puedes decargarte una copia desde la pestaña code o haciendo un Clone 😊
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+El proyecto está formado por 4 categorías de productos:  cámaras, switchs, routers y firewall
 
-### `npm test`
+### Pre-requisitos 📋
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Este es un propyecto de React.Js, por lo que para poder visualizarlo y/o modificarlo necesitas instalar node.js.
+Puedes utilizar Visual Studio Code o Sublime Text para revisarlo 🔧
 
-### `npm run build`
+### Instalación 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Estas instrucciones están hechas para **Visual Studio Code**, con el cual lo realicé:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Instala **node.js** y **npm** desde https://nodejs.org/es/download/
 
-### `npm run eject`
+* En el Visual Studio Code úbicate en el directorio donde vas a colocar el proyecto
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* Clona el proyecto con `npm clone` + la dirección copiada de git `https://github.com/luiggimarquez/ryutechnology_marquez` en TERMINAL (Ctrl + ñ)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Instala las dependencias **npm** del proyecto ubicandonos en el path donde se encuenrtra nuestro **package.json** con: `npm install`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Compila con `npm start`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* Abre [http://localhost:3000](http://localhost:3000) para verlo en tu navegador. Si se está usando ese puerto en tu computador, la consola de preguntará si deseas cambiar el puerto; si lo deseas, puedes liberar el puerto de la siguiente forma:
 
-## Learn More
+>Abre un command prompt (CMD) en modo administrador:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+>>`netstat -ab` para ver el nombre de aplicación o ip que está ocupando el puerto
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+>>`netstat -aon` para ver el numero de pid de la app o dirección que está usando el puerto
 
-### Code Splitting
+>>`taskkill /pid [numero_pid] /F` para cerrar  el puerto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Otra opción es cambiar el puerto por defecto del proyecto; para ello debemos crear un fichero `.env` en el directorio raíz de nuestra aplicación React.JS y añadirle el puerto sobre el que queremos que se ejecute, por ejemplo:
 
-### Analyzing the Bundle Size
+![port](./portVSC.jpg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+La página se recargará cada vez que guardes cambios y podrás visualar los errores en la consola
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+>Si ya tienes instalado el node.js resta solamente instalar las npm y compilar el proyecto para comenzar.
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Construido con 🛠️
 
-### Deployment
+* EL proyecto está desarrollado con [Create React App](https://github.com/facebook/create-react-app).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* Los estilos CSS estan hechos con SASS en Visual Studio Code 1.63.2
 
-### `npm run build` fails to minify
+* Para SASS está usada la dependencia `SASS` versión 1.49.9
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Está instalada la dependencia `react-bootstrap` versión 2.2.1 usada para el menú **dropdown del NavBar** para las categorías de los productos.
+
+* Está instalada la dependencia `react-router-bootstrap` versión 0.26.1 usada para enrutar con **<LinkContainer>** las categorías usadas en el dropdown , es el método recomendado por real-bootstrap
+
+* Está instalada la dependencia `react-router-dom` versión 6.2.2 para los enrutamientos entre páginas
+
+* Está instalada la dependencia `SweetAlert2` versión 11.4.6 para las ventanas emergentes de avisos, en este momento está usada para indicar que se excede el stock al agregar los artículos con el ItemCount.js
+
+* Todo el layout de la página esta hecho con flexbox realizado de forma manual.
+
+* Todo la lógica está escrita en `JavaScript Vanilla` directamente.
+
+* El spinner del cargado de las páginas está hecho con CSS, idea tomada de https://www.w3schools.com/ y adaptada a la página
+
+* Las imágenes no son de mi autoría, todo es material público en internet.
+
+* La fuente del título, fue tomada de https://befonts.com/anurati-font.html
+
+
+## Autor✒️
+
+
+Este proyecto fue realizado para las clases de React.js de CoderHouse por:
+
+**Ing. Luiggi Márquez** - [GitHub Profile](https://github.com/luiggimarquez) ✌️
+
+Buenos Aires, Argentina 2022
+
+
+

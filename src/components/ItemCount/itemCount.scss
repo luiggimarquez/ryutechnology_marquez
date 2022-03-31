@@ -5,46 +5,33 @@
     justify-content: center;
     flex-direction: column;
 
-    p{
-        text-align: center;
-        padding: 10px;
-        margin: 0px;
-    }
-
-    .boton{
+    .botonesCarrito{
 
         display: flex;
-        width: 25%;
-        background-color: rgb(77 217 182 / 67%);
-        flex-direction: column;
-        align-self: center;
+        color: snow;
+        background: darkcyan;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
 
-        .alineaBoton{
+        .botonesCantidad{
 
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            .botonCount{
-
-                width: 15%;
-                align-self: center;
-                border-radius: 10px;
-                margin: 15px;
+            width: 10%;
+            align-self: center;
+            border-radius: 10px;
+            margin: 15px;
             
-                &:active{
+            &:active{
             
-                    background-color:rgb(10, 163, 156);
-                }
+                background-color:rgb(10, 163, 156);
             }
         }
 
-        .botonCarrito{
+        .botonAdd{
 
-            width: 30%;
-            align-self: center;
-            margin: 10px;
-        }  
+            @extend .botonesCantidad;
+            width:30%;
+        }
     }
 }

@@ -1,9 +1,7 @@
 import "./itemDetail.scss"
 import { Link } from "react-router-dom"
 
-const ItemDetail = ({item}) => {
-
-    console.log(item)
+const ItemDetail = ({item, children}) => {
 
     return(
 
@@ -11,19 +9,16 @@ const ItemDetail = ({item}) => {
 
             <div className="cardContainerDetails">
 
-                <img src={item.img}/>
-                <div className="botonesCarrito">
-                    <button className="botonesCantidad">-</button>
-                    <span>0</span>
-                    <button className="botonesCantidad">+</button>
-                    <button className="botonAdd" >Agregar a Carrito</button>
-                </div>
+                <img src={item.img} alt='producto en venta'/>
+                
                 <p id="tituloDetail">Producto: { item.nombre}</p>
                 <p>Marca: {item.marca}</p>
                 <p>Tipo: {item.tipo}</p>
                 <p>Categoría: {item.categoria}</p>
-                <p>Precio: {item.precio}</p>
+                <p>Precio: {item.precio} USD</p>
+                {children}
                 <p>Stock disponible: {item.cantidad}</p>
+                
 
             </div>
             

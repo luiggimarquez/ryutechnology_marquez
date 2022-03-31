@@ -23,16 +23,14 @@
         width: 120px;
         height: 120px;
         -webkit-animation: spin 2s linear infinite;
-        animation: spin 2s linear infinite;
-         
+        animation: spin 2s linear infinite;   
     }
+    
     p{
         color: darkcyan;
         font-size: larger;
     }
-
-        
-        
+ 
     @-webkit-keyframes spin {
 
         0% { -webkit-transform: rotate(0deg); }

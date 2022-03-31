@@ -40,27 +40,6 @@
             padding: 10px 0;
         }
 
-        .botonesCarrito{
-
-            color:snow;
-            background: darkcyan;
-            width: 100%;
-            text-align: center;
-
-            .botonesCantidad{
-
-                width: 10%;
-                align-self: center;
-                border-radius: 10px;
-                margin: 15px;
-            }
-
-            .botonAdd{
-
-                @extend .botonesCantidad;
-                width:30%;
-            }
-        }
     }
 
     .detalleDetails {

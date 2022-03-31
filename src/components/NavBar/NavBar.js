@@ -2,7 +2,8 @@ import "./navBar.scss"
 import logo1 from "./logo1.png"
 import { NavDropdown } from 'react-bootstrap'
 import CartWidget from "../CartWidget/CartWidget"
-import {Link} from "react-router-dom"
+import {Link, NavLink} from "react-router-dom"
+import { LinkContainer } from 'react-router-bootstrap'
 
 const NavBar = () => {  
 
@@ -21,15 +22,14 @@ const NavBar = () => {
 
                 <ul className="menuNav">
                         
-                    <Link to="/" className="a"><li>Home</li></Link>
+                    <NavLink to="/" className={ ({isActive}) => isActive ? 'navActivo' : 'a'}><li>Home</li></NavLink>
                     <NavDropdown title="Categorías" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#">Cámaras</NavDropdown.Item>
-                    <NavDropdown.Item href="#">Switchs</NavDropdown.Item>
-                    <NavDropdown.Item href="#">Routers</NavDropdown.Item>
+                    <LinkContainer to ="/category/camara"><NavDropdown.Item>Cámaras</NavDropdown.Item></LinkContainer>
+                    <LinkContainer to ="/category/switch"><NavDropdown.Item>Switchs</NavDropdown.Item></LinkContainer>
+                    <LinkContainer to ="/category/router"><NavDropdown.Item>Routers</NavDropdown.Item></LinkContainer>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#">Firewalls</NavDropdown.Item>
+                    <LinkContainer to ="/category/firewall"><NavDropdown.Item>Firewalls</NavDropdown.Item></LinkContainer>
                     </NavDropdown>
-                    <Link to="/Contacto" className="a"><li>Contacto</li></Link>
                     
                 </ul>
 
