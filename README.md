@@ -10,11 +10,11 @@ tanto a nivel empresarial como en los hogares. Esta versión desarrollada en **R
 
 Este es un proyecto público, puedes decargarte una copia desde la pestaña code o haciendo un Clone 😊
 
-El proyecto está formado por 4 categorías de productos:  cámaras, switchs, routers y firewall
+El proyecto está formado por 4 categorías de productos:  cámaras, switchs, routers y firewalls
 
 ### Pre-requisitos 📋
 
-Este es un propyecto de React.Js, por lo que para poder visualizarlo y/o modificarlo necesitas instalar node.js.
+Este es un proyecto de React.Js, por lo que para poder visualizarlo y/o modificarlo necesitas instalar node.js.
 Puedes utilizar Visual Studio Code o Sublime Text para revisarlo 🔧
 
 ### Instalación 
@@ -46,7 +46,7 @@ Otra opción es cambiar el puerto por defecto del proyecto; para ello debemos cr
 
 ![port](./public/portVSC.jpg)
 
-La página se recargará cada vez que guardes cambios y podrás visualar los errores en la consola
+La página se recargará cada vez que guardes cambios (CTRL + S) y podrás visualizar los errores en la consola
 
 
 >Si ya tienes instalado el node.js resta solamente instalar las npm y compilar el proyecto para comenzar.
@@ -87,6 +87,3 @@ Este proyecto fue realizado para las clases de React.js de CoderHouse por:
 **Ing. Luiggi Márquez** - [GitHub Profile](https://github.com/luiggimarquez) ✌️
 
 Buenos Aires, Argentina 2022
-
-
-
