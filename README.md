@@ -3,7 +3,7 @@
 Este site es de una empresa dedicada al rubro tecnológico de la ingeniería de redes y su aplicación en el ámbito de comunicaciones, seguridad, automatización y domótica,
 tanto a nivel empresarial como en los hogares. Esta versión desarrollada en **React.js** está enfocada en productos de networking y cámaras de vigilancia, para un e-commerce.
 
-![web principal](./ryutech.jpg)
+![web principal](./public/ryutech.jpg)
 
 
 ## Comenzando 🚀
@@ -28,11 +28,11 @@ Estas instrucciones están hechas para **Visual Studio Code**, con el cual lo re
 
 * Clona el proyecto con `npm clone` + la dirección copiada de git `https://github.com/luiggimarquez/ryutechnology_marquez` en TERMINAL (Ctrl + ñ)
 
-* Instala las dependencias **npm** del proyecto ubicandonos en el path donde se encuenrtra nuestro **package.json** con: `npm install`
+* Instala las dependencias **npm** del proyecto ubicándote en el path donde se encuentra nuestro **package.json** con: `npm install`
 
 * Compila con `npm start`
 
-* Abre [http://localhost:3000](http://localhost:3000) para verlo en tu navegador. Si se está usando ese puerto en tu computador, la consola de preguntará si deseas cambiar el puerto; si lo deseas, puedes liberar el puerto de la siguiente forma:
+* Abre [http://localhost:3000](http://localhost:3000) para verlo en tu navegador. Si se está usando ese puerto en tu computador, la consola te preguntará si deseas cambiar el puerto; si lo deseas, puedes liberar el puerto de la siguiente forma:
 
 >Abre un command prompt (CMD) en modo administrador:
 
@@ -44,7 +44,7 @@ Estas instrucciones están hechas para **Visual Studio Code**, con el cual lo re
 
 Otra opción es cambiar el puerto por defecto del proyecto; para ello debemos crear un fichero `.env` en el directorio raíz de nuestra aplicación React.JS y añadirle el puerto sobre el que queremos que se ejecute, por ejemplo:
 
-![port](./portVSC.jpg)
+![port](./public/portVSC.jpg)
 
 La página se recargará cada vez que guardes cambios y podrás visualar los errores en la consola
 
@@ -56,13 +56,13 @@ La página se recargará cada vez que guardes cambios y podrás visualar los err
 
 * EL proyecto está desarrollado con [Create React App](https://github.com/facebook/create-react-app).
 
-* Los estilos CSS estan hechos con SASS en Visual Studio Code 1.63.2
+* Los estilos CSS están hechos con SASS en Visual Studio Code 1.63.2
 
 * Para SASS está usada la dependencia `SASS` versión 1.49.9
 
 * Está instalada la dependencia `react-bootstrap` versión 2.2.1 usada para el menú **dropdown del NavBar** para las categorías de los productos.
 
-* Está instalada la dependencia `react-router-bootstrap` versión 0.26.1 usada para enrutar con **<LinkContainer>** las categorías usadas en el dropdown , es el método recomendado por real-bootstrap
+* Está instalada la dependencia `react-router-bootstrap` versión 0.26.1 usada para enrutar con **<LinkContainer>** las categorías usadas en el dropdown , es el método recomendado por react-bootstrap
 
 * Está instalada la dependencia `react-router-dom` versión 6.2.2 para los enrutamientos entre páginas
 
