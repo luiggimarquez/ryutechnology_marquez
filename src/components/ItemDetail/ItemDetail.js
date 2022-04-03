@@ -25,7 +25,7 @@ const ItemDetail = ({item}) => {
                 <p>Tipo: {item.tipo}</p>
                 <p>Categoría: {item.categoria}</p>
                 <p>Precio: {item.precio} USD</p>
-                {(quantity === 0) ? <ItemCount inicial={1} OnAdd={OnAdd}/>: <Link to="/car"><button className="irCart">Ir a Cart</button> </Link> }
+                {(quantity === 0) ? <ItemCount inicial={1} OnAdd={OnAdd}/>: <Link to="/cart"><button className="irCart">Ir a Cart</button> </Link> }
                 <p>Stock disponible: {item.cantidad}</p>
                 
 
