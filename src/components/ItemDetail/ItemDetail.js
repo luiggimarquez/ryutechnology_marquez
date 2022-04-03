@@ -1,7 +1,16 @@
 import "./itemDetail.scss"
 import { Link } from "react-router-dom"
+import ItemCount from '../ItemCount/ItemCount';
+import {useState} from "react"
+const ItemDetail = ({item}) => {
 
-const ItemDetail = ({item, children}) => {
+    const [quantity,setQuantity]=useState(0);
+
+    const OnAdd = (agregados) =>{
+
+        setQuantity({...item, agregados}) 
+        console.log(`agregadas ${agregados} unidades de ${item.nombre}`)
+    }
 
     return(
 
@@ -16,7 +25,7 @@ const ItemDetail = ({item, children}) => {
                 <p>Tipo: {item.tipo}</p>
                 <p>Categoría: {item.categoria}</p>
                 <p>Precio: {item.precio} USD</p>
-                {children}
+                {(quantity === 0) ? <ItemCount inicial={1} OnAdd={OnAdd}/>: <Link to="/car"><button className="irCart">Ir a Cart</button> </Link> }
                 <p>Stock disponible: {item.cantidad}</p>
                 
 
