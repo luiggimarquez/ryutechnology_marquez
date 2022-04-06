@@ -15,7 +15,6 @@ const ItemDetail = ({item}) => {
     const OnAdd = (agregados) =>{
 
         setQuantity(agregados) 
-        console.log(`agregadas ${agregados} unidades de ${item.nombre}`)
         addItem({agregados,...item})
        
     }
