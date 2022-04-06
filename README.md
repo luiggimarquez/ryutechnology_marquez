@@ -78,6 +78,8 @@ La página se recargará cada vez que guardes cambios (CTRL + S) y podrás visua
 
 * La fuente del título, fue tomada de https://befonts.com/anurati-font.html
 
+* Los botones son del sitio https://cssbuttons.io/
+
 
 ## Autor✒️
 

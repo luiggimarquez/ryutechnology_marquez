@@ -1,21 +1,23 @@
 .contenedorGeneral{
 
     display: flex;
-    height: 65vh;
     flex-direction: column;
     width: 100%;
+    margin: 0 0 273px 0;
 
     .cartTitle{
 
         display: flex;
         justify-content: center;
+        color: lightseagreen;
     
     }
 
     .titlesContainer {
 
         display: flex;
-        justify-content: space-evenly; 
+        justify-content: space-evenly;
+       
     }
 
     .articleContainer {
@@ -23,6 +25,7 @@
         display: flex;
         justify-content: space-around;
         width: 100%;
+       
 
         .columnasItem{
 
@@ -102,10 +105,9 @@
 
         width: 20%;
         padding: 10px;
-        margin-top: 30px;
         align-self: center;
         display: inline-block;
-        margin: 10px 0;
+        margin: 15px 0;
         border: 1px solid #4f4f4f;
         border-radius: 4px;
         transition: all 0.2s ease-in;
@@ -165,12 +167,13 @@
 
     .carritoVacio{
 
-        display:flex;
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 100%;
-        margin: auto;
+        height: 11.65vh;
+        margin-top: 145px;
 
         button{
 
@@ -181,7 +184,7 @@
     .montoPago{
 
         display: flex;
-       justify-content: flex-end;
+        justify-content: flex-end;
         margin-right: 50px;
     }
 

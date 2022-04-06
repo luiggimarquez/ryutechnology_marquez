@@ -2,6 +2,7 @@ import cart from "./cart.png"
 import "./cartWidget.scss"
 import { useContext } from "react"
 import Context from "../../context/CartContext"
+import {Link} from "react-router-dom"
 
 const CartWidget = () =>{
 
@@ -11,7 +12,7 @@ const CartWidget = () =>{
 
         <div className="cart">
 
-            <img className="imgCart" src={cart} alt="imagen carrito"/>
+            <Link to="/cart"><picture><img className="imgCart" src={cart} alt="imagen carrito"/></picture></Link>
             <span className="countCart">{getNumeroCarrito()}</span>
 
         </div>

@@ -6,6 +6,7 @@ export const  CartContextProvider = ( { children }) => {
 
     const [cart,setCart] = useState([])
 
+    
     const addItem = (itemAgregado) => {
 
         console.log(cart)
@@ -15,8 +16,8 @@ export const  CartContextProvider = ( { children }) => {
             setCart([itemAgregado])
         }else{
 
-            
 
+            
             let valida= cart.some(ele => ele.id === itemAgregado.id)
 
             console.log(valida)
@@ -32,7 +33,10 @@ export const  CartContextProvider = ( { children }) => {
                     }
                 } )
 
-                console.log(cart)
+               
+
+                setCart([...cart])
+              
 
             }else{
 
@@ -40,11 +44,13 @@ export const  CartContextProvider = ( { children }) => {
             }
         }
 
+        
     }
   
     useEffect(() =>{
 
         console.log(cart)
+
 
     },[cart] )
     
@@ -72,6 +78,8 @@ export const  CartContextProvider = ( { children }) => {
 
             numero = numero + elemento.agregados;
         })
+
+        
 
         return numero
     }

@@ -35,8 +35,8 @@ const Cart = () =>{
                 <div className="columnasItem"> {cart.map(elemento =><button key={elemento.id} className="buttonCart" onClick={() => eliminarItem(elemento.id)}>Eliminar</button> )}</div>
 
             </div>
-            <div className="montoPago">Subtotal a pagar: {subTotal} USD</div> <div className="montoPago">Total a pagar {(subTotal*0.21 + subTotal)} USD</div>
-            <button className="borrarCarrito" onClick={() => clearItem()}> Borrar carrito </button></> : <div className="carritoVacio"><h3>El carrito está vacio</h3><Link to="/"><button className="borrarCarrito">Volver a Home</button></Link></div>
+            <div className="montoPago">Subtotal a pagar: {subTotal} USD</div> <div className="montoPago">Total a pagar: {(subTotal*0.21 + subTotal)} USD</div>
+            <button className="borrarCarrito" onClick={() => clearItem()}> Borrar carrito </button></> : <div className="carritoVacio"><img src="./img/empty_cart.png" alt="imagen carro vacío"/><h3>El carrito está vacio</h3><Link to="/"><button className="borrarCarrito">Volver a Home</button></Link></div>
             
             }
         </div>
