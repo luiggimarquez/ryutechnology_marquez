@@ -1,5 +1,188 @@
-h2{
+.contenedorGeneral{
+
     display: flex;
-    justify-content: center;
     height: 65vh;
+    flex-direction: column;
+    width: 100%;
+
+    .cartTitle{
+
+        display: flex;
+        justify-content: center;
+    
+    }
+
+    .titlesContainer {
+
+        display: flex;
+        justify-content: space-evenly; 
+    }
+
+    .articleContainer {
+
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+
+        .columnasItem{
+
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            padding: 22px 0;
+
+            p{
+                margin: 10px 0;
+            }
+
+            .buttonCart {
+
+                display: inline-block;
+                margin: 10px 0;
+                border: 1px solid #4f4f4f;
+                border-radius: 4px;
+                transition: all 0.2s ease-in;
+                position: relative;
+                overflow: hidden;
+                color: black;
+                z-index: 1;
+
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+                    top: 100%;
+                    width: 140%;
+                    height: 180%;
+                    background-color: rgba(0, 0, 0, 0.05);
+                    border-radius: 50%;
+                    display: block;
+                    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+                    z-index: -1;
+                }
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    left: 55%;
+                    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+                    top: 180%;
+                    width: 160%;
+                    height: 190%;
+                    background-color: #39bda7;
+                    border-radius: 50%;
+                    display: block;
+                    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+                    z-index: -1;
+                }
+
+                &:hover {
+                    color: #ffffff;
+                    border: 1px solid #39bda7;
+                }
+
+                &:hover:before {
+                    top: -35%;
+                    background-color: #39bda7;
+                    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+                }
+
+                &:hover:after {
+                    top: -45%;
+                    background-color: #39bda7;
+                    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+                }
+            }
+        }
+    }   
+
+    .borrarCarrito {
+
+        width: 20%;
+        padding: 10px;
+        margin-top: 30px;
+        align-self: center;
+        display: inline-block;
+        margin: 10px 0;
+        border: 1px solid #4f4f4f;
+        border-radius: 4px;
+        transition: all 0.2s ease-in;
+        position: relative;
+        overflow: hidden;
+        color: black;
+        z-index: 1;
+
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%) scaleY(1) scaleX(1.25);
+            top: 100%;
+            width: 140%;
+            height: 180%;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 50%;
+            display: block;
+            transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+            z-index: -1;
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            left: 55%;
+            transform: translateX(-50%) scaleY(1) scaleX(1.45);
+            top: 180%;
+            width: 160%;
+            height: 190%;
+            background-color: #39bda7;
+            border-radius: 50%;
+            display: block;
+            transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+            z-index: -1;
+        }
+
+        &:hover {
+            color: #ffffff;
+            border: 1px solid #39bda7;
+        }
+
+        &:hover:before {
+            top: -35%;
+            background-color: #39bda7;
+            transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+        }
+
+        &:hover:after {
+            top: -45%;
+            background-color: #39bda7;
+            transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+        }
+    }
+
+    .carritoVacio{
+
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: auto;
+
+        button{
+
+            width: 100%;
+        }
+    }
+
+    .montoPago{
+
+        display: flex;
+       justify-content: flex-end;
+        margin-right: 50px;
+    }
+
 }

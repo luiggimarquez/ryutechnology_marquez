@@ -3,14 +3,21 @@ import "./itemCount.scss"
 import Swal from 'sweetalert2'
 import { useParams } from "react-router-dom";
 import { getStock } from "../../AsyncMock";
+import Context from '../../context/CartContext';
+import { useContext } from "react";
+
 
 const ItemCount = ({initial = 1, OnAdd}) => {
+
 
     const [stock, setStock] = useState([]);
     const [count,setCount] = useState(initial); //contador de los botones
     const [carrito,setCarrito] = useState([]); //contador de la cantidad de stock
     
     const { id } = useParams()
+
+    const { cart } = useContext(Context)
+ 
 
     useEffect(()=>{
 
@@ -30,12 +37,62 @@ const ItemCount = ({initial = 1, OnAdd}) => {
   
     const incrementar = () =>{
 
-       (count < stock.cantidad) && setCount(count + 1);
+
+        if(cart.length === 0){
+
+            (count < stock.cantidad) && setCount(count + 1);
+
+        }else{
+
+            let valida = cart.find(ele => ele.id === stock.id)
+            
+            
+            if(valida){
+
+                (count < (stock.cantidad - valida.agregados)) && setCount(count + 1);
+
+                if(stock.cantidad - valida.agregados <= 0){
+
+                    alert();
+
+                }
+
+            }else{
+
+                (count < stock.cantidad) && setCount(count + 1);
+
+            }
+
+        }
+
+
     }
 
     const decrementar = () =>{
 
         (count > 1) && setCount(count - 1);
+    }
+
+    const botonAgregar = () => {
+
+        let validarCarrito=[];
+
+
+        if(cart.length !== 0){
+
+          validarCarrito = cart.find(ele => ele.id === stock.id)
+        
+        }
+        
+        if((count <= carrito && ((cart.length === 0)|| validarCarrito === undefined)) || (count <= carrito && (stock.cantidad - validarCarrito.agregados))){ 
+         
+            OnAdd(count)
+            setCarrito(carrito-count)
+
+        }else{
+
+            alert()  
+        } 
     }
 
     const alert = () =>{
@@ -58,19 +115,7 @@ const ItemCount = ({initial = 1, OnAdd}) => {
         })
     }
 
-    const botonAgregar = () => {
-        
-        if(count <= carrito){ 
-            
-            OnAdd(count)
-            setCarrito(carrito-count)
-            
-        }else{
-
-          alert()  
-        } 
-    }
-
+  
     return(
 
     <div className="buttonContainer">
@@ -86,5 +131,6 @@ const ItemCount = ({initial = 1, OnAdd}) => {
 
     )
 }
+
 
 export default ItemCount;

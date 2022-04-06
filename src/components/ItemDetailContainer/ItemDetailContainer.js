@@ -25,6 +25,12 @@ const ItemDetailContainer = () => {
             setLoading(false)
         })
 
+        return (() => {
+
+            setItem([])
+
+        })
+
     },[id])
 
     if(loading){
