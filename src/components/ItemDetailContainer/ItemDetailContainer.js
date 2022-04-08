@@ -10,6 +10,7 @@ const ItemDetailContainer = () => {
     const[itemDeta,setItem] = useState([])
     const[loading, setLoading] = useState(true);
 
+    console.log(id)
     useEffect(() =>{
 
         setLoading(true)
@@ -33,6 +34,8 @@ const ItemDetailContainer = () => {
 
     },[id])
 
+    console.log(itemDeta)
+
     if(loading){
 
         return (
@@ -50,7 +53,7 @@ const ItemDetailContainer = () => {
 
         <div>
 
-            <ItemDetail item={itemDeta}/>
+            {(itemDeta !== undefined) ? <ItemDetail item={itemDeta} /> : <h1>Elemento no exite en stock</h1>}
 
         </div>
     )

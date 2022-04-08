@@ -11,6 +11,8 @@ const   ItemListContainer = ({saludo}) => {
     const[products,setProducts] =useState([]);
     const[loading, setLoading] = useState(true);
 
+    
+
     useEffect(() => {
 
         if(id){
@@ -62,13 +64,17 @@ const   ItemListContainer = ({saludo}) => {
             </div>
         )
     }
+
+    console.log(id)
+    console.log(products)
     
     return(
 
         <div>
 
             <h1 className="h1">{saludo}</h1>
-            <ItemList products={products}/>
+            {(products.length !== 0) ? <ItemList products={products}/> : <h1>No existe</h1>}
+            
             
         </div>
     )

@@ -4,8 +4,13 @@ import { NavDropdown } from 'react-bootstrap'
 import CartWidget from "../CartWidget/CartWidget"
 import {Link, NavLink} from "react-router-dom"
 import { LinkContainer } from 'react-router-bootstrap'
+import Context from '../../context/CartContext';
+import { useContext } from "react";
 
 const NavBar = () => {  
+
+    const { cart } = useContext(Context)
+ 
 
     return (
 
@@ -33,7 +38,7 @@ const NavBar = () => {
                     
                 </ul>
 
-                <CartWidget />
+                {(cart.length !== 0) ? <CartWidget />: <></>}
 
             </nav>
 
