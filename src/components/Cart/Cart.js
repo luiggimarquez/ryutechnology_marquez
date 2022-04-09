@@ -28,7 +28,7 @@ const Cart = () =>{
             <><div className="titlesContainer"><p>Producto</p> <p>Cantidad</p><p>Precio USD</p><p>Sub-monto  USD</p><p>Accion</p></div>
             <div className="articleContainer">
 
-                <div className="columnasItem">{cart.map(elemento => <><img src={elemento.img} /><p key={elemento.id}>{elemento.nombre}</p></>)}</div>
+                <div className="columnasItem">{cart.map(elemento => <p key={elemento.id}>{elemento.nombre}</p>)}</div>
                 <div className="columnasItem">{cart.map(elemento =><p key={elemento.id}>{elemento.agregados}</p>)}</div>
                 <div className="columnasItem">{cart.map(elemento => <p key={elemento.id}>{elemento.precio}</p>)}</div>
                 <div className="columnasItem">{cart.map(elemento => <p key={elemento.id}>{elemento.agregados*elemento.precio}</p>)}</div>

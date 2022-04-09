@@ -35,3 +35,17 @@
         100% { transform: rotate(360deg); }
     }
 }
+
+.error404{
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    h1{
+
+        color:darkcyan;
+        margin: 30px;
+    }
+}

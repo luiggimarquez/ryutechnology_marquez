@@ -3,6 +3,8 @@ import ItemList from "../ItemList/ItemList"
 import { getCategoryById, getProducts } from "../../AsyncMock"
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
+import Lottie from "lottie-react";
+import error404 from "../../assets/error404.json"
 
 
 const   ItemListContainer = ({saludo}) => {
@@ -10,8 +12,6 @@ const   ItemListContainer = ({saludo}) => {
     const { id } = useParams()
     const[products,setProducts] =useState([]);
     const[loading, setLoading] = useState(true);
-
-    
 
     useEffect(() => {
 
@@ -65,15 +65,24 @@ const   ItemListContainer = ({saludo}) => {
         )
     }
 
-    console.log(id)
-    console.log(products)
+    const options = { //parametros de animacion Lottie para cuando se coloque una categoria que no existe en el URL
+
+        animationData: error404,
+        autoplay: true,
+        loop: true,
+        style: {
+            width: '50%',
+        },
+
+    }
+
     
     return(
 
         <div>
 
             <h1 className="h1">{saludo}</h1>
-            {(products.length !== 0) ? <ItemList products={products}/> : <h1>No existe</h1>}
+            {(products.length !== 0) ? <ItemList products={products}/> : <section className='error404'><Lottie {...options}/></section>}
             
             
         </div>

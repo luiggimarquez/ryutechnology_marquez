@@ -6,8 +6,20 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Footer from "./components/Footer/Footer"
 import Cart from "./components/Cart/Cart"
 import { CartContextProvider } from './context/CartContext';
+import Lottie from "lottie-react";
+import error404 from "./assets/error404.json"
 
 function App() {
+
+    const options = {
+
+        animationData: error404,
+        autoplay: true,
+        loop: true,
+        style: {
+            width: '40%',
+        },
+    }
 
     return (
 
@@ -23,7 +35,7 @@ function App() {
                         <Route path="/item/:id" element={<ItemDetailContainer/>} />
                         <Route path="/category/:id" element={<ItemListContainer/>}/>
                         <Route path="/cart" element={<Cart/>} />
-                        <Route path="*" element={<h1>Elemento no Existe</h1>} />
+                        <Route path="*" element={<section className='error404'><Lottie {...options}/></section>} />
 
                     </Routes>
                     <Footer />

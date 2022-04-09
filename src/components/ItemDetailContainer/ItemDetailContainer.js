@@ -3,6 +3,8 @@ import { getItem } from "../../AsyncMock"
 import { useState, useEffect } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
+import Lottie from "lottie-react";
+import error404 from "../../assets/itemNotFound.json"
 
 const ItemDetailContainer = () => {
 
@@ -10,7 +12,6 @@ const ItemDetailContainer = () => {
     const[itemDeta,setItem] = useState([])
     const[loading, setLoading] = useState(true);
 
-    console.log(id)
     useEffect(() =>{
 
         setLoading(true)
@@ -34,8 +35,6 @@ const ItemDetailContainer = () => {
 
     },[id])
 
-    console.log(itemDeta)
-
     if(loading){
 
         return (
@@ -44,16 +43,24 @@ const ItemDetailContainer = () => {
                 <div className="loader"></div>
                 <p>Loading info ...</p>
             </div>
+        )   
+    }
 
-        )
-          
+    const options = {
+
+        animationData: error404,
+        autoplay: true,
+        loop: true,
+        style: {
+            width: '50%',
+        },
     }
     
     return (
 
         <div>
 
-            {(itemDeta !== undefined) ? <ItemDetail item={itemDeta} /> : <h1>Elemento no exite en stock</h1>}
+            {(itemDeta !== undefined) ? <ItemDetail item={itemDeta} /> : <section className='error404'><Lottie {...options}/><h1>Elemento no existe en stock</h1></section>}
 
         </div>
     )
