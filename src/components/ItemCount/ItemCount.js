@@ -38,7 +38,7 @@ const ItemCount = ({initial = 1, OnAdd}) => {
     const incrementar = () =>{
 
 
-        if(cart.length === 0){
+        if(cart.length === 0 && (stock.cantidad !== 0)){
 
             (count < stock.cantidad) && setCount(count + 1);
 
@@ -51,7 +51,7 @@ const ItemCount = ({initial = 1, OnAdd}) => {
 
                 (count < (stock.cantidad - valida.agregados)) && setCount(count + 1);
 
-                if(stock.cantidad - valida.agregados <= 0){
+                if(stock.cantidad - valida.agregados <= 0 || (stock.cantidad === 0)){
 
                     alert();
 
