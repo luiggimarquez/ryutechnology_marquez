@@ -2,14 +2,13 @@ import "./cart.scss"
 import { useContext } from "react";
 import Context from '../../context/CartContext';
 import { Link } from "react-router-dom"
-
+import { useState, useEffect } from "react";
 
 const Cart = () =>{
 
     const {cart} = useContext(Context)
     const {clearItem} = useContext(Context) 
     const {eliminarItem} = useContext(Context)
-
     let subTotal = 0;
  
 
@@ -18,6 +17,31 @@ const Cart = () =>{
         subTotal = subTotal + (elemento.agregados*elemento.precio)
          
     })
+
+    const[loading, setLoading] = useState(true);
+
+    useEffect(() => {
+
+        let a = false
+
+        setTimeout(() => {
+
+            setLoading(a)
+
+
+        },1500)
+    },[])
+
+    if(loading){
+
+        return (
+
+            <div className="loaderContainer">
+                <div className="loader"></div>
+                <p>Loading info ...</p>
+            </div>
+        )
+    }
 
     return(
 
@@ -36,7 +60,7 @@ const Cart = () =>{
 
             </div>
             <div className="montoPago">Subtotal a pagar: {subTotal} USD</div> <div className="montoPago">Total a pagar: {(subTotal*0.21 + subTotal)} USD</div>
-            <button className="borrarCarrito" onClick={() => clearItem()}> Borrar carrito </button></> : <div className="carritoVacio"><img src="./img/empty_cart.png" alt="imagen carro vacío"/><h3>El carrito está vacio</h3><Link to="/"><button className="borrarCarrito">Volver a Home</button></Link></div>
+            <button className="borrarCarrito" onClick={() => clearItem()}> Borrar carrito </button></> : <div className="carritoVacio"><img src="/img/empty_cart.png" alt="imagen carro vacío"/><h3>El carrito está vacio</h3><Link to="/"><button className="borrarCarrito">Volver a Home</button></Link></div>
             
             }
         </div>
