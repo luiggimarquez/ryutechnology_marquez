@@ -1,10 +1,11 @@
 import "./ItemDetailContainer.scss"
-import { getItem } from "../../AsyncMock"
 import { useState, useEffect } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
 import Lottie from "lottie-react";
-import error404 from "../../assets/itemNotFound.json"
+import itemNotFound from "../../assets/itemNotFound.json"
+import { doc, getDoc } from "firebase/firestore";
+import { firestoreDb } from "../../services/Firebase";
 
 const ItemDetailContainer = () => {
 
@@ -15,9 +16,12 @@ const ItemDetailContainer = () => {
     useEffect(() =>{
 
         setLoading(true)
-        getItem(id).then(recibir =>{
+        const docRef = doc(firestoreDb,'items',id)
+        getDoc(docRef).then(querySnapshot =>{
 
-            setItem(recibir)
+            const elemento = { id: querySnapshot.id, ...querySnapshot.data()}
+            setItem(elemento)
+
         }).catch( error =>{
             
             console.log(error)
@@ -30,7 +34,6 @@ const ItemDetailContainer = () => {
         return (() => {
 
             setItem([])
-
         })
 
     },[id])
@@ -48,7 +51,7 @@ const ItemDetailContainer = () => {
 
     const options = {
 
-        animationData: error404,
+        animationData: itemNotFound,
         autoplay: true,
         loop: true,
         style: {
@@ -59,9 +62,7 @@ const ItemDetailContainer = () => {
     return (
 
         <div>
-
-            {(itemDeta !== undefined) ? <ItemDetail item={itemDeta} /> : <section className='error404'><Lottie {...options}/><h1>Elemento no existe en stock</h1></section>}
-
+            {(itemDeta.cantidad !== undefined) ? <ItemDetail item={itemDeta} /> : <section className='itemNotFound'><Lottie {...options}/><h1>Elemento no existe en stock</h1></section>}
         </div>
     )
 }

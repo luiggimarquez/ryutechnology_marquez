@@ -1,11 +1,11 @@
 import "./itemListContainer.scss"
 import ItemList from "../ItemList/ItemList"
-import { getCategoryById, getProducts } from "../../AsyncMock"
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
 import Lottie from "lottie-react";
 import error404 from "../../assets/error404.json"
-
+import { collection, getDocs,query, where } from "firebase/firestore";
+import { firestoreDb } from "../../services/Firebase";
 
 const   ItemListContainer = ({saludo}) => {
 
@@ -15,39 +15,25 @@ const   ItemListContainer = ({saludo}) => {
 
     useEffect(() => {
 
-        if(id){
-
-            setLoading(true);
-            getCategoryById(id).then (recibir =>{
-
-                setProducts(recibir);
-            }).catch(error =>{
-
-                console.log(error);
-            }).finally(()=>{
-
-                setLoading(false)
+        setLoading(true);
+        const collectionRef = id ? query(collection(firestoreDb,'items'), where('categoria','==',id) ) : collection(firestoreDb,'items')
+        getDocs(collectionRef).then(querySnapshot =>{
+    
+            const items = querySnapshot.docs.map(doc => {
+    
+                return{ id: doc.id, ...doc.data() }
             })
+            setProducts(items);
+
+        }).catch(error =>{
+    
+            console.log(error);
+
+        }).finally(()=>{
+    
+            setLoading(false)
+        })
             
-
-        }else{
-
-            
-            setLoading(true)
-            getProducts().then(recibir =>{
-
-                setProducts(recibir)
-
-            }).catch( error =>{
-                
-                console.log(error)
-
-            }).finally( () => {
-
-                setLoading(false)
-            })
-        }
-
         return (() => {
             setProducts([])
         }) 
@@ -73,10 +59,8 @@ const   ItemListContainer = ({saludo}) => {
         style: {
             width: '50%',
         },
-
     }
 
-    
     return(
 
         <div>

@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import "./itemCount.scss"
 import Swal from 'sweetalert2'
 import { useParams } from "react-router-dom";
-import { getStock } from "../../AsyncMock";
 import Context from '../../context/CartContext';
 import { useContext } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { firestoreDb } from "../../services/Firebase";
 
 
 const ItemCount = ({initial = 1, OnAdd}) => {
@@ -21,10 +22,13 @@ const ItemCount = ({initial = 1, OnAdd}) => {
 
     useEffect(()=>{
 
-        getStock(id).then(recibir =>{
+        const docRef = doc(firestoreDb,'items',id)
+        getDoc(docRef).then(querySnapshot =>{
 
-            setStock(recibir)
-            setCarrito(recibir.cantidad)
+            const elemento = { id: querySnapshot.id, ...querySnapshot.data()}
+          
+            setStock(elemento)
+            setCarrito(elemento.cantidad)
         })
 
         return (() => {
@@ -54,7 +58,6 @@ const ItemCount = ({initial = 1, OnAdd}) => {
                 if(stock.cantidad - valida.agregados <= 0 || (stock.cantidad === 0)){
 
                     alert();
-
                 }
 
             }else{

@@ -29,11 +29,11 @@ const NavBar = () => {
                         
                     <NavLink to="/" className={ ({isActive}) => isActive ? 'navActivo' : 'a'}><li>Home</li></NavLink>
                     <NavDropdown title="Categorías" id="basic-nav-dropdown">
-                    <LinkContainer to ="/category/camara"><NavDropdown.Item>Cámaras</NavDropdown.Item></LinkContainer>
-                    <LinkContainer to ="/category/switch"><NavDropdown.Item>Switchs</NavDropdown.Item></LinkContainer>
-                    <LinkContainer to ="/category/router"><NavDropdown.Item>Routers</NavDropdown.Item></LinkContainer>
+                    <LinkContainer to ="/category/Camara"><NavDropdown.Item>Cámaras</NavDropdown.Item></LinkContainer>
+                    <LinkContainer to ="/category/Switch"><NavDropdown.Item>Switchs</NavDropdown.Item></LinkContainer>
+                    <LinkContainer to ="/category/Router"><NavDropdown.Item>Routers</NavDropdown.Item></LinkContainer>
                     <NavDropdown.Divider />
-                    <LinkContainer to ="/category/firewall"><NavDropdown.Item>Firewalls</NavDropdown.Item></LinkContainer>
+                    <LinkContainer to ="/category/Firewall"><NavDropdown.Item>Firewalls</NavDropdown.Item></LinkContainer>
                     </NavDropdown>
                     
                 </ul>

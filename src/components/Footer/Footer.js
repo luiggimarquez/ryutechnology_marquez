@@ -21,10 +21,10 @@ const Footer = () => {
                         <ul className ="menuNavFooter">
 
                             <NavLink to="/" className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>Home</li></NavLink>
-                            <NavLink to="/category/camara" className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>Cámaras</li></NavLink>
-                            <NavLink to="/category/switch" className={ ({isActive}) => isActive ? 'footerActivo': undefined}><li>Switchs</li></NavLink>
-                            <NavLink to="/category/router" className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>Routers</li></NavLink>
-                            <NavLink to="/category/firewall" className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>Firewalls</li></NavLink>
+                            <NavLink to="/category/Camara" className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>Cámaras</li></NavLink>
+                            <NavLink to="/category/Switch" className={ ({isActive}) => isActive ? 'footerActivo': undefined}><li>Switchs</li></NavLink>
+                            <NavLink to="/category/Router" className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>Routers</li></NavLink>
+                            <NavLink to="/category/Firewall" className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>Firewalls</li></NavLink>
             
                         </ul>
 
