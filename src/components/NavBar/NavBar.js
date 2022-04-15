@@ -6,11 +6,34 @@ import {Link, NavLink} from "react-router-dom"
 import { LinkContainer } from 'react-router-bootstrap'
 import Context from '../../context/CartContext';
 import { useContext } from "react";
+import { useState, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { firestoreDb } from "../../services/Firebase";
 
 const NavBar = () => {  
 
     const { cart } = useContext(Context)
- 
+    const [menu, setMenu] = useState([])
+
+    useEffect(() => {
+
+        const collectionRef = collection(firestoreDb,'categorias')
+        getDocs(collectionRef).then(querySnapshot =>{
+    
+            const items = querySnapshot.docs.map(doc => {
+    
+                return{ id: doc.id, ...doc.data() }
+            })
+             
+            setMenu(items);  
+                
+        }).catch( error =>{
+            
+            console.log(error);
+    
+        })
+            
+    },[])
 
     return (
 
@@ -29,11 +52,7 @@ const NavBar = () => {
                         
                     <NavLink to="/" className={ ({isActive}) => isActive ? 'navActivo' : 'a'}><li>Home</li></NavLink>
                     <NavDropdown title="Categorías" id="basic-nav-dropdown">
-                    <LinkContainer to ="/category/Camara"><NavDropdown.Item>Cámaras</NavDropdown.Item></LinkContainer>
-                    <LinkContainer to ="/category/Switch"><NavDropdown.Item>Switchs</NavDropdown.Item></LinkContainer>
-                    <LinkContainer to ="/category/Router"><NavDropdown.Item>Routers</NavDropdown.Item></LinkContainer>
-                    <NavDropdown.Divider />
-                    <LinkContainer to ="/category/Firewall"><NavDropdown.Item>Firewalls</NavDropdown.Item></LinkContainer>
+                    {menu.map(elemento => <LinkContainer to ={`/category/${elemento.nombre}` } key={elemento.id}><NavDropdown.Item >{elemento.nombre}s</NavDropdown.Item></LinkContainer>)}
                     </NavDropdown>
                     
                 </ul>

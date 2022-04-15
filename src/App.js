@@ -6,6 +6,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Footer from "./components/Footer/Footer"
 import Cart from "./components/Cart/Cart"
 import { CartContextProvider } from './context/CartContext';
+import { WishListContextProvider } from './context/WishListContext';
 import Lottie from "lottie-react";
 import error404 from "./assets/error404.json"
 
@@ -24,24 +25,23 @@ function App() {
     return (
 
         <div>
+            <WishListContextProvider>
+                <CartContextProvider>
+                    <BrowserRouter>
+                        <NavBar />
+                        <Routes>
 
-            <CartContextProvider>
-                <BrowserRouter>
+                            <Route path= "/" element={<ItemListContainer saludo="Listado de productos"/>}/>
+                            <Route path="/item/:id" element={<ItemDetailContainer/>} />
+                            <Route path="/category/:id" element={<ItemListContainer/>}/>
+                            <Route path="/cart" element={<Cart/>} />
+                            <Route path="*" element={<section className='error404'><Lottie {...options}/></section>} />
 
-                    <NavBar />
-                    <Routes>
-
-                        <Route path= "/" element={<ItemListContainer saludo="Listado de productos"/>}/>
-                        <Route path="/item/:id" element={<ItemDetailContainer/>} />
-                        <Route path="/category/:id" element={<ItemListContainer/>}/>
-                        <Route path="/cart" element={<Cart/>} />
-                        <Route path="*" element={<section className='error404'><Lottie {...options}/></section>} />
-
-                    </Routes>
-                    <Footer />
-                
-                </BrowserRouter>
-            </CartContextProvider>
+                        </Routes>
+                        <Footer />
+                    </BrowserRouter>
+                </CartContextProvider>
+            </WishListContextProvider>
 
         </div>
     );

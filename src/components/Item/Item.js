@@ -19,11 +19,9 @@ const Item = (productos2) =>{
                         
                     </div> 
                 </div>
-            </div>
-                
+            </div>   
         </>
     )
-
 }
 
 export default Item

@@ -4,8 +4,30 @@ import instagram from "./RRSS/instagram.png"
 import twitter from "./RRSS/twitter.png"
 import facebook from "./RRSS/facebook.svg"
 import {Link, NavLink} from "react-router-dom"
+import { useState, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { firestoreDb } from "../../services/Firebase";
 
 const Footer = () => {
+
+    const [menu, setMenu] = useState([])
+
+    useEffect(() => {
+
+        const collectionRef = collection(firestoreDb,'categorias')
+        getDocs(collectionRef).then(querySnapshot =>{
+    
+            const items = querySnapshot.docs.map(doc => {
+    
+                return{ id: doc.id, ...doc.data() }
+            })
+            setMenu(items);  
+                
+        }).catch( error =>{
+            
+            console.log(error);
+        })
+    },[])
 
     return(
 
@@ -21,13 +43,9 @@ const Footer = () => {
                         <ul className ="menuNavFooter">
 
                             <NavLink to="/" className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>Home</li></NavLink>
-                            <NavLink to="/category/Camara" className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>Cámaras</li></NavLink>
-                            <NavLink to="/category/Switch" className={ ({isActive}) => isActive ? 'footerActivo': undefined}><li>Switchs</li></NavLink>
-                            <NavLink to="/category/Router" className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>Routers</li></NavLink>
-                            <NavLink to="/category/Firewall" className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>Firewalls</li></NavLink>
-            
+                            {menu.map(elemento => <NavLink key={elemento.id} to={`/category/${elemento.nombre}`}  className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>{`${elemento.nombre}s`}</li></NavLink>)}
+                            
                         </ul>
-
                     </div>
                         
                     <div className="contenedorImagenesFooter">

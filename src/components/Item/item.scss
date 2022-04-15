@@ -88,14 +88,17 @@
 
     }
 
-    
-
     .CardContainer:hover {
 
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
 }
 
+.contenedorPocosArticulos{
+
+    @extend .contenedor;
+    height: 85vh;
+}
 
 @media screen and (max-width: 1400px){
 

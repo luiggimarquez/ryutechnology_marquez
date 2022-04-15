@@ -10,16 +10,13 @@ const Cart = () =>{
     const {clearItem} = useContext(Context) 
     const {eliminarItem} = useContext(Context)
     let subTotal = 0;
- 
 
     cart.forEach(elemento =>{
 
         subTotal = subTotal + (elemento.agregados*elemento.precio)
-         
     })
 
     const[loading, setLoading] = useState(true);
-
     useEffect(() => {
 
         let a = false
@@ -27,9 +24,8 @@ const Cart = () =>{
         setTimeout(() => {
 
             setLoading(a)
-
-
         },1500)
+
     },[])
 
     if(loading){
@@ -65,7 +61,6 @@ const Cart = () =>{
             }
         </div>
     )
-
 }
 
 export default Cart

@@ -1,9 +1,9 @@
 import "./itemListContainer.scss"
 import ItemList from "../ItemList/ItemList"
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
 import Lottie from "lottie-react";
-import error404 from "../../assets/error404.json"
+import itemNotFound from "../../assets/itemNotFound.json";
 import { collection, getDocs,query, where } from "firebase/firestore";
 import { firestoreDb } from "../../services/Firebase";
 
@@ -53,7 +53,7 @@ const   ItemListContainer = ({saludo}) => {
 
     const options = { //parametros de animacion Lottie para cuando se coloque una categoria que no existe en el URL
 
-        animationData: error404,
+        animationData: itemNotFound,
         autoplay: true,
         loop: true,
         style: {
@@ -66,9 +66,8 @@ const   ItemListContainer = ({saludo}) => {
         <div>
 
             <h1 className="h1">{saludo}</h1>
-            {(products.length !== 0) ? <ItemList products={products}/> : <section className='error404'><Lottie {...options}/></section>}
-            
-            
+            {(products.length !== 0) ? <ItemList products={products}/> : <section className='itemNotFound'><Lottie {...options}/><h2 className="h2">No se ha encontrado</h2></section>}
+     
         </div>
     )
 }

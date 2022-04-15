@@ -7,7 +7,6 @@ import {Link} from "react-router-dom"
 const CartWidget = () =>{
 
     const { getNumeroCarrito } = useContext(Context)
-
     return (
 
         <div className="cart">
@@ -17,7 +16,6 @@ const CartWidget = () =>{
 
         </div>
     )
-
 }
 
 export default CartWidget
