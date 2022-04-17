@@ -1,0 +1,20 @@
+@mixin formulario($display, $ancho, $margen, $borde, $bordeRadio, $fondoColor){
+
+    display:$display;
+    width: $ancho;
+    margin:$margen;
+    border:$borde;
+    border-radius: $bordeRadio;
+    background-color: $fondoColor;
+}
+
+@mixin direccionContacto($ancho,$posicion,$x,$y,$nombre){
+
+    width: $ancho;
+    position: absolute;
+    z-index: $posicion;
+    transform: translate($x,$y);
+    animation-name:$nombre;
+    animation-duration: 1s;
+    transition: 1s;
+}

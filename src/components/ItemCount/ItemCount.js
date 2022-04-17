@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import Context from '../../context/CartContext';
 import { useContext } from "react";
 import { doc, getDoc } from "firebase/firestore";
-import { firestoreDb } from "../../services/Firebase";
+import { firestoreDb } from "../../services";
 
 const ItemCount = ({initial = 1, OnAdd}) => {
 

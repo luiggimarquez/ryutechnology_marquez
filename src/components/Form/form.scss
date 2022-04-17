@@ -1,0 +1,53 @@
+.formularioContacto{ /* Formulario en contacto.html */
+
+    width:565px;
+	padding:16px;
+	border-radius:14px;
+	margin: 100px 0 150px 0;
+    align-self: center;
+    background-color:rgba(0, 0, 0, 0.555);
+    
+    input{ 
+
+        &[type="text"], 
+        &[type="email"], &[type="tel"]{ /* Estilo y posicion  para los elementos del formulario */
+            
+            display:inline;
+            width: 248px;
+            margin:5px 0 0 12px;
+            border:1px solid rgba(69, 69, 158, 0.651);
+            border-radius: 5px;
+            background-color: rgb(255, 255, 255);
+            padding:3px 10px;
+        }
+    } //Cierre input
+
+    button[type="submit"], input[type="reset"]{  /* Estilo y posición  para los botones del formulario */
+    
+        display:inline;
+        width: 135px;
+        margin:32px 0 0 88px;
+        border:1px solid #000;
+        border-radius: 5px;
+        background-color: rgb(255, 247, 247);
+    }
+
+    button[type="submit"]:active, input[type="reset"]:active{
+
+        background-color:lightgreen;
+        color: snow;
+    }
+
+    textarea{  /* Área de texto para la consulta en contacto.html */
+
+        display:inline;
+        width: 519px;
+        margin:16px 0 0 8px;
+        border:1px solid rgba(69, 69, 158, 0.651);
+        border-radius: 3px;
+        background-color: #ffffff;
+        height:150px;
+        resize:none;
+        padding: 5px;
+    }
+}

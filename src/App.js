@@ -7,8 +7,10 @@ import Footer from "./components/Footer/Footer"
 import Cart from "./components/Cart/Cart"
 import { CartContextProvider } from './context/CartContext';
 import { WishListContextProvider } from './context/WishListContext';
+import { UserContextProvider } from './context/UsersContext';
 import Lottie from "lottie-react";
 import error404 from "./assets/error404.json"
+import Form from "./components/Form/Form"
 
 function App() {
 
@@ -25,6 +27,7 @@ function App() {
     return (
 
         <div>
+            <UserContextProvider>
             <WishListContextProvider>
                 <CartContextProvider>
                     <BrowserRouter>
@@ -35,6 +38,7 @@ function App() {
                             <Route path="/item/:id" element={<ItemDetailContainer/>} />
                             <Route path="/category/:id" element={<ItemListContainer/>}/>
                             <Route path="/cart" element={<Cart/>} />
+                            <Route path="/formulario" element={<Form/>} />
                             <Route path="*" element={<section className='error404'><Lottie {...options}/></section>} />
 
                         </Routes>
@@ -42,6 +46,7 @@ function App() {
                     </BrowserRouter>
                 </CartContextProvider>
             </WishListContextProvider>
+            </UserContextProvider>
 
         </div>
     );

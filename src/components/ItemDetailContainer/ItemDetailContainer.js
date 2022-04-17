@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom"
 import Lottie from "lottie-react";
 import itemNotFound from "../../assets/itemNotFound.json"
 import { doc, getDoc } from "firebase/firestore";
-import { firestoreDb } from "../../services/Firebase";
+import { firestoreDb } from "../../services/index";
 
 const ItemDetailContainer = () => {
 

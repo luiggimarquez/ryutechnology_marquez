@@ -8,7 +8,7 @@ import Context from '../../context/CartContext';
 import { useContext } from "react";
 import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { firestoreDb } from "../../services/Firebase";
+import { firestoreDb } from "../../services/index";
 
 const NavBar = () => {  
 

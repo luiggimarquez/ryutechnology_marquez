@@ -6,7 +6,7 @@ import facebook from "./RRSS/facebook.svg"
 import {Link, NavLink} from "react-router-dom"
 import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { firestoreDb } from "../../services/Firebase";
+import { firestoreDb } from "../../services/index";
 
 const Footer = () => {
 

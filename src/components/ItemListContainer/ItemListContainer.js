@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Lottie from "lottie-react";
 import itemNotFound from "../../assets/itemNotFound.json";
-import { collection, getDocs,query, where } from "firebase/firestore";
-import { firestoreDb } from "../../services/Firebase";
+//import { collection, getDocs,query, where } from "firebase/firestore";
+//import { firestoreDb } from "../../services/Index";
+import { getProducts } from "../../services/Firestore";
 
 const   ItemListContainer = ({saludo}) => {
 
@@ -16,15 +17,10 @@ const   ItemListContainer = ({saludo}) => {
     useEffect(() => {
 
         setLoading(true);
-        const collectionRef = id ? query(collection(firestoreDb,'items'), where('categoria','==',id) ) : collection(firestoreDb,'items')
-        getDocs(collectionRef).then(querySnapshot =>{
-    
-            const items = querySnapshot.docs.map(doc => {
-    
-                return{ id: doc.id, ...doc.data() }
-            })
-            setProducts(items);
+        getProducts(id).then (recibir =>{
 
+            setProducts(recibir);
+        
         }).catch(error =>{
     
             console.log(error);
