@@ -1,6 +1,7 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { useState } from "react"
 import { createContext } from "react";
+import { Navigate } from "react-router-dom";
 
 
 const UserContext = createContext();
@@ -21,7 +22,9 @@ export const  UserContextProvider = ( { children }) => {
             .then((userCredential)=>{
 
             const user = userCredential.user;
+            
             setUsersList(name, password, phone, mail, {...user.uid})
+            setUser(user)
 
             }).catch((error)=>{
 
@@ -30,7 +33,7 @@ export const  UserContextProvider = ( { children }) => {
             console.log(errorCode, errorMessage)    
         });
 
-
+        
     }
 
     const login = (mail, password) => {
@@ -46,6 +49,17 @@ export const  UserContextProvider = ( { children }) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorCode, errorMessage)
+        });
+
+        updateProfile (auth.currentUser, {
+            
+            displayName: user.name,
+
+          }).then(() => {
+              
+
+          }).catch((error) => {
+            
         });
 
     }
