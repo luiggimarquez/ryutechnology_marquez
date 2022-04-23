@@ -38,6 +38,8 @@ const ItemCount = ({initial = 1, OnAdd}) => {
         if(cart.length === 0 && (stock.cantidad !== 0)){
 
             (count < stock.cantidad) && setCount(count + 1);
+        
+           
 
         }else{
 
@@ -51,10 +53,15 @@ const ItemCount = ({initial = 1, OnAdd}) => {
                     alert();
                 }
 
+                
+
             }else{
 
                 (count < stock.cantidad) ? setCount(count + 1): alert();
+
+                
             }
+            
         }
     }
 
@@ -80,6 +87,8 @@ const ItemCount = ({initial = 1, OnAdd}) => {
 
             alert()  
         } 
+
+        
     }
 
     const alert = () =>{

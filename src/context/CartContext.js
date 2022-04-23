@@ -61,6 +61,21 @@ export const  CartContextProvider = ( { children }) => {
        setCart(quitar)
     }
 
+    const removeOutOfStock = (ids) => {
+        let quitar =cart
+
+        console.log(ids)
+        ids.forEach(toDelete =>{
+
+            quitar = quitar.filter(elemento => elemento.id !== toDelete)
+            console.log(ids)
+            console.log(quitar)
+            setCart(quitar)
+        })
+
+        console.log(cart)
+    }
+
     const getNumeroCarrito = () =>{
 
         let numero = 0;
@@ -73,7 +88,7 @@ export const  CartContextProvider = ( { children }) => {
 
     return (
         
-        <Context.Provider value={{cart, addItem, clearItem,eliminarItem, getNumeroCarrito}}>
+        <Context.Provider value={{cart, addItem, clearItem,eliminarItem, getNumeroCarrito, removeOutOfStock }}>
             {children} 
         </Context.Provider>
     )

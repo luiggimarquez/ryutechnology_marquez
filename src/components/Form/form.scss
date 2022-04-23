@@ -1,16 +1,54 @@
-.formularioContacto{ /* Formulario en contacto.html */
+.loginContainer{
 
-    width:565px;
-	padding:16px;
-	border-radius:14px;
-	margin: 100px 0 150px 0;
-    align-self: center;
-    background-color:rgba(0, 0, 0, 0.555);
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    background-color: rgba(0, 139, 139, 0.192);
+
+    h2{
+        margin: 15px;
+        text-align: center;
+        color: darkcyan;
+    }
+
+    p{
+        margin: 15px;
+        text-align: center;
+        color: darkcyan;
+
+    }
+
+    .botonLogin, .botonLogout{
+       
+        align-self: center;
+        display:inline;
+        width: 20%;
+        border:1px solid #000;
+        border-radius: 5px;
+        background-color: rgb(255, 247, 247);
+        margin-top:15px
+
+    }
     
-    input{ 
+    .formContainer{
+
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .formularioContacto{ /* Formulario en contacto.html */
+
+        width:565px;
+        padding:16px;
+        border-radius:14px;
+        margin: 100px 0 150px 0;
+        align-self: center;
+        background-color:rgba(0, 139, 139, 0.692);
+    
+        input{ 
 
         &[type="text"], 
-        &[type="email"], &[type="tel"]{ /* Estilo y posicion  para los elementos del formulario */
+        &[type="email"], &[type="tel"], &[type="password"]{ /* Estilo y posicion  para los elementos del formulario */
             
             display:inline;
             width: 248px;
@@ -50,4 +88,7 @@
         resize:none;
         padding: 5px;
     }
+    }
+
+    } 
 }

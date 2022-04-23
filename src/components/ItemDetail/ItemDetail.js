@@ -4,14 +4,14 @@ import ItemCount from '../ItemCount/ItemCount';
 import {useState} from "react"
 import { useContext } from "react";
 import Context from '../../context/CartContext';
-import WishListContext from "../../context/WishListContext";
+// import WishListContext from "../../context/WishListContext";
 
 
 const ItemDetail = ({item}) => {
 
     const [quantity,setQuantity]=useState(0);
     const { addItem } = useContext(Context)
-    const { addWishList } = useContext(WishListContext)
+    // const { addWishList } = useContext(WishListContext)
     const OnAdd = (agregados) =>{
 
         setQuantity(agregados) 
@@ -32,7 +32,7 @@ const ItemDetail = ({item}) => {
                 <p>Precio: {item.precio} USD</p>
                 { item.cantidad === 0 ? null: ((quantity === 0) ? <ItemCount inicial={1} OnAdd={OnAdd}/>: <Link to="/cart"><button className="irCart">Ir a Cart</button> </Link>) }
                 {(item.cantidad !== 0) ? <p>Stock disponible: {item.cantidad}</p> : <p>Articulo sin Stock</p>}
-                <button onClick={() => addWishList(item)} >Agregar a WishList</button>
+                {/* <button onClick={() => addWishList(item)} >Agregar a WishList</button> */}
             </div>
             
             <div className="detalleDetails">

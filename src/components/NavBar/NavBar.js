@@ -5,6 +5,7 @@ import CartWidget from "../CartWidget/CartWidget"
 import {Link, NavLink} from "react-router-dom"
 import { LinkContainer } from 'react-router-bootstrap'
 import Context from '../../context/CartContext';
+import UserContext from "../../context/UsersContext"
 import { useContext } from "react";
 import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
@@ -13,6 +14,7 @@ import { firestoreDb } from "../../services/index";
 const NavBar = () => {  
 
     const { cart } = useContext(Context)
+    const { user } = useContext(UserContext)
     const [menu, setMenu] = useState([])
 
     useEffect(() => {
@@ -33,7 +35,7 @@ const NavBar = () => {
     
         })
             
-    },[])
+    },[user])
 
     return (
 
@@ -58,6 +60,8 @@ const NavBar = () => {
                 </ul>
 
                 {(cart.length !== 0) ? <CartWidget />: <></>}
+
+                {(user.length !== 0)? <Link className="actualUserNav" to="/formulario"><img className="iconUser" src="./img/usericon.png" alt="icono usuario" /><p>{user.displayName}</p></Link>: <></>}
 
             </nav>
 

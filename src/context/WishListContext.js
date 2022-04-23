@@ -27,9 +27,7 @@ export const  WishListContextProvider = ( { children }) => {
             setList([itemAgregado])
         }else{
 
-            console.log(itemAgregado)
-            console.log(typeof(list))
-            console.log(list)
+          
 
             let valida = list.some(elemento => elemento.id === itemAgregado.id)
 
@@ -47,7 +45,7 @@ export const  WishListContextProvider = ( { children }) => {
         
 
     }
-console.log(list)
+
     return(
 
         <WishListContext.Provider value={ {list, addWishList} }>
