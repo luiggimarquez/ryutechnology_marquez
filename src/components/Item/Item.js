@@ -15,7 +15,7 @@ const Item = (productos2) =>{
                         <p>{productos2.nombre}</p>
                         <p>Producto: {productos2.categoria}</p>
                         <Link to={`/item/${productos2.id}`}><button >Ver detalles del producto</button></Link>
-                        <p>Stock disponible: {productos2.cantidad}</p>
+                        { productos2.cantidad !== 0 ? <p>Stock disponible: {productos2.cantidad}</p> : <p>Sin Stock</p>}
                         
                     </div> 
                 </div>

@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    width: 100%;
     background-color: rgba(0, 139, 139, 0.192);
 
     h2{
@@ -81,5 +82,14 @@
         }
     }
 
+    .accessLottie{
+
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        height: 78vh;
+
+        
+    }
 
 }

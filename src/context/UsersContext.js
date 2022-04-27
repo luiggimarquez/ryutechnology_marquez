@@ -1,14 +1,18 @@
-import {onAuthStateChanged, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, setPersistence, browserLocalPersistence } from "firebase/auth";
-import { useState } from "react"
+import {onAuthStateChanged, getAuth, setPersistence, browserLocalPersistence } from "firebase/auth";
+import { userLoginFirebase, userRegisterFirebase, userSignOutFirebase } from "../services/Auth";
+import NotificationContext from "./NotificationContext";
+import { useContext, useState } from "react"
+import { app } from "../services/Index"
 import { createContext } from "react";
 
 const UserContext = createContext();
-export const  UserContextProvider = ( { children }) => {
+export const  UserContextProvider = ({ children }) => {
 
-    const[user,setUser]=useState([])
-    const[orderNumber, setOrderNumber]=useState([])
+    const auth = getAuth(app);
+    const[user,setUser] = useState([])
     const[loading, setLoading] = useState(true);
-    const auth = getAuth();
+    const[orderNumber, setOrderNumber] = useState([])
+    const {setNotification } = useContext(NotificationContext)
     
     setPersistence(auth, browserLocalPersistence); 
     onAuthStateChanged(auth, (user) => {
@@ -24,61 +28,35 @@ export const  UserContextProvider = ( { children }) => {
         }
     });
 
-    const register= (name, password, phone, mail) => {
+    const register = (name, password, phone, mail) => {
  
-        createUserWithEmailAndPassword(auth,mail,password)
-            .then((userCredential)=>{
-
-                const user = userCredential.user;
-                setUser(user)
-
-            }).then(() =>{
-
-                updateProfile (auth.currentUser,{
+        userRegisterFirebase(name, password, phone, mail).then((userCredential)=>{
             
-                    displayName : name,
-                    photoURL: phone,
-                    
-                  }).then(() => {
+            setUser(userCredential)
 
-                   
-                  }).catch((error) => {
+        }).catch(() => {
 
-                    console.log(error)
-                    
-                });
-
-            }).catch((error)=>{
-
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage)    
+            setNotification('error',`Mail: ${mail} ya está registrado`,3000);    
         }); 
     }
 
-
     const login = (mail, password) => {
 
-        signInWithEmailAndPassword(auth, mail, password)
+        userLoginFirebase(mail, password).then((userCredential)=>{
+            
+            setUser(userCredential)
 
-        .then((userCredential) => {
+        }).catch(() => {
 
-            const user = userCredential.user;
-            setUser(user)
-
-        }).catch((error) => {
-
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage)
+            setNotification('error', 'Correo o contraseña inválida', 3000)
         });
     }
 
-    const singOut = () => {
+    const signOut = () => {
 
-        signOut(auth).then(() => {
-
-            setUser([])
+        userSignOutFirebase().then((userCredential) => {
+            
+            setUser(userCredential)
             
         }).catch((error) => {
             console.log(error)
@@ -103,7 +81,7 @@ export const  UserContextProvider = ( { children }) => {
 
     return(
 
-        <UserContext.Provider value={{login, register, singOut, user,orderNumber, getOrderNumber}}>
+        <UserContext.Provider value={{login, register, signOut, user,orderNumber, getOrderNumber}}>
             {children} 
         </UserContext.Provider> 
     )

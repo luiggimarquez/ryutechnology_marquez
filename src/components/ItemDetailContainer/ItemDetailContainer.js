@@ -4,8 +4,7 @@ import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
 import Lottie from "lottie-react";
 import itemNotFound from "../../assets/itemNotFound.json"
-import { doc, getDoc } from "firebase/firestore";
-import { firestoreDb } from "../../services/index";
+import { getItem } from "../../services/Firestore";
 
 const ItemDetailContainer = () => {
 
@@ -16,10 +15,8 @@ const ItemDetailContainer = () => {
     useEffect(() =>{
 
         setLoading(true)
-        const docRef = doc(firestoreDb,'items',id)
-        getDoc(docRef).then(querySnapshot =>{
-
-            const elemento = { id: querySnapshot.id, ...querySnapshot.data()}
+        getItem(id).then( (elemento) =>{
+            
             setItem(elemento)
 
         }).catch( error =>{

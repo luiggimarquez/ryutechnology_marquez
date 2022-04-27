@@ -1,5 +1,4 @@
 import { createContext,useState,useEffect} from "react";
-
 const WishListContext = createContext();
 
 export const  WishListContextProvider = ( { children }) => {
@@ -20,35 +19,35 @@ export const  WishListContextProvider = ( { children }) => {
 
     },[list])
 
-    const addWishList = (itemAgregado) => {
+    const validateItemWishList = (item) => {
 
-        if(list.length === 0){
-
-            setList([itemAgregado])
-        }else{
-
-          
-
-            let valida = list.some(elemento => elemento.id === itemAgregado.id)
-
-            if(valida){
-
-                console.log("articulo ya exite en fav")
-
-            }else{
-
-                list.push(itemAgregado)
-            }
-        
-        }
-
-        
+       console.log(item)
+       console.log(list)
+        let validate = list.some(elemento => elemento.item.id === item)
+       
+        return(validate)
 
     }
 
+    const addWishList = (itemAgregado) => {
+
+        
+       list.length === 0 ? setList([itemAgregado]) : setList([...list, itemAgregado])
+
+
+    }
+
+    const removeWishList = (item) =>{
+
+        let remove = list.filter(elemento => elemento.item.id !== item)
+        setList(remove)
+
+    }
+
+        console.log(list)
     return(
 
-        <WishListContext.Provider value={ {list, addWishList} }>
+        <WishListContext.Provider value={ {list, addWishList, validateItemWishList, removeWishList} }>
             {children}
         </WishListContext.Provider>
 

@@ -8,10 +8,12 @@ import Cart from "./components/Cart/Cart"
 import { CartContextProvider } from './context/CartContext';
 import { WishListContextProvider } from './context/WishListContext';
 import { UserContextProvider } from './context/UsersContext';
+import { NotificationContextProvider } from './context/NotificationContext';
 import Lottie from "lottie-react";
 import error404 from "./assets/error404.json"
 import Form from "./components/Form/Form"
 import PurchaseOrder from "./components/PurchaseOrder/PurchaseOrder"
+import WishList from "./components/WishList/WishList"
 
 function App() {
 
@@ -28,12 +30,13 @@ function App() {
     return (
 
         <div>
-            <UserContextProvider>
-            <WishListContextProvider>
-                <CartContextProvider>
-                    <BrowserRouter>
-                        <NavBar />
-                        <Routes>
+            <NotificationContextProvider>
+                <UserContextProvider>
+                    <WishListContextProvider>
+                        <CartContextProvider>
+                    <       BrowserRouter>
+                            <NavBar />
+                            <Routes>
 
                             <Route path= "/" element={<ItemListContainer saludo="Listado de productos"/>}/>
                             <Route path="/item/:id" element={<ItemDetailContainer/>} />
@@ -41,14 +44,16 @@ function App() {
                             <Route path="/cart" element={<Cart/>} />
                             <Route path="/formulario" element={<Form/>} />
                             <Route path="/purchaseorder" element={<PurchaseOrder/>} />
+                            <Route path="/wishlist" element={<WishList/>}></Route>
                             <Route path="*" element={<section className='error404'><Lottie {...options}/></section>} />
 
-                        </Routes>
-                        <Footer />
-                    </BrowserRouter>
-                </CartContextProvider>
-            </WishListContextProvider>
-            </UserContextProvider>
+                            </Routes>
+                            <Footer />
+                            </BrowserRouter>
+                        </CartContextProvider>
+                    </WishListContextProvider>
+                </UserContextProvider>
+            </NotificationContextProvider>
 
         </div>
     );

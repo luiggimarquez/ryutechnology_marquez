@@ -1,0 +1,40 @@
+.wishList{
+
+    background-color: rgba(0, 139, 139, 0.315);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+
+    h1{
+        text-align: center;
+        color: darkcyan
+    }
+
+    .itemsWishList{
+
+        background: teal;
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+        margin-bottom: 20px;
+        color: white;
+    }
+}
+
+.accessLottieWish{
+
+    background-color: rgba(0, 139, 139, 0.315);
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 78vh;
+
+    h1{
+        text-align: center;
+        color: darkcyan;
+    }
+}

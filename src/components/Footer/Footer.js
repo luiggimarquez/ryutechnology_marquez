@@ -5,8 +5,7 @@ import twitter from "./RRSS/twitter.png"
 import facebook from "./RRSS/facebook.svg"
 import {Link, NavLink} from "react-router-dom"
 import { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { firestoreDb } from "../../services/index";
+import { getNavbar } from "../../services/Firestore";
 
 const Footer = () => {
 
@@ -14,13 +13,8 @@ const Footer = () => {
 
     useEffect(() => {
 
-        const collectionRef = collection(firestoreDb,'categorias')
-        getDocs(collectionRef).then(querySnapshot =>{
-    
-            const items = querySnapshot.docs.map(doc => {
-    
-                return{ id: doc.id, ...doc.data() }
-            })
+        getNavbar().then( (items) =>{
+            
             setMenu(items);  
                 
         }).catch( error =>{
@@ -39,7 +33,6 @@ const Footer = () => {
                 <div className ="footerAlineacion"> 
 
                     <div className ="contenedorMenuFooter">
-                        
                         <ul className ="menuNavFooter">
 
                             <NavLink to="/" className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>Home</li></NavLink>
@@ -56,16 +49,10 @@ const Footer = () => {
 
                         <div className="contenedorRrss">
 
-                            <a href="http://www.instagram.com" target="_blank" rel="noreferrer">
-                                <img src={instagram} alt="Instagram" />
-                            </a>
-                            <a href="http://www.twitter.com" target="_blank" rel="noreferrer">
-                                <img src={twitter} alt="Twitter" />
-                            </a>
-                            <a href="http://www.facebook.com" target="_blank" rel="noreferrer">
-                                <img src={facebook} alt="Facebook" />
-                            </a>
-
+                            <a href="http://www.instagram.com" target="_blank" rel="noreferrer"><img src={instagram} alt="Instagram" /></a>
+                            <a href="http://www.twitter.com" target="_blank" rel="noreferrer"><img src={twitter} alt="Twitter" /></a>
+                            <a href="http://www.facebook.com" target="_blank" rel="noreferrer"><img src={facebook} alt="Facebook" /></a>
+                                
                         </div>
 
                     </div>

@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Lottie from "lottie-react";
 import itemNotFound from "../../assets/itemNotFound.json";
-//import { collection, getDocs,query, where } from "firebase/firestore";
-//import { firestoreDb } from "../../services/Index";
 import { getProducts } from "../../services/Firestore";
 
 const   ItemListContainer = ({saludo}) => {

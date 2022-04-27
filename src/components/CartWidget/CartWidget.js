@@ -11,7 +11,7 @@ const CartWidget = () =>{
 
         <div className="cart">
 
-            <Link to="/cart"><picture><img className="imgCart" src={cart} alt="imagen carrito"/></picture></Link>
+            <Link className="linkCart" to="/cart"><picture><img className="imgCart" src={cart} alt="imagen carrito"/></picture></Link>
             <span className="countCart">{getNumeroCarrito()}</span>
 
         </div>

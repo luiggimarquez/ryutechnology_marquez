@@ -1,23 +1,24 @@
 import { useState, useEffect } from "react";
-import "./itemCount.scss"
-import { useParams } from "react-router-dom";
+import "./ItemCountWishList.scss"
 import Context from '../../context/CartContext';
 import { useContext } from "react";
 import NotificationContext from "../../context/NotificationContext";
 import { setLimitItemCount } from "../../services/Firestore";
+import WishListContext from "../../context/WishListContext";
 
-const ItemCount = ({initial = 1, OnAdd}) => {
+const ItemCountWishList = ({initial = 1, onAddWishList, item}) => {
 
     const [stock, setStock] = useState([]);
-    const [count,setCount] = useState(initial); //contador de los botones
-    const [carrito,setCarrito] = useState([]); //contador de la cantidad de stock
-    const { id } = useParams()
+    const [count,setCount] = useState(initial); 
+    const [carrito,setCarrito] = useState([]); 
     const { cart } = useContext(Context)
     const { setNotification } = useContext(NotificationContext)
+    const { removeWishList } = useContext(WishListContext)
  
+    console.log(item)
     useEffect(()=>{
 
-        setLimitItemCount(id).then((elemento) =>{
+        setLimitItemCount(item.id).then((elemento) =>{
 
             setStock(elemento)
             setCarrito(elemento.cantidad)
@@ -33,7 +34,7 @@ const ItemCount = ({initial = 1, OnAdd}) => {
             setCarrito([])
         })
 
-    },[id])
+    },[item.id])
   
     const incrementar = () =>{
 
@@ -50,12 +51,13 @@ const ItemCount = ({initial = 1, OnAdd}) => {
                 (count < (stock.cantidad - valida.agregados)) && setCount(count + 1);
                 if(((stock.cantidad - valida.agregados) <= 0) || (stock.cantidad === 0)){
 
-                    setNotification('info', 'Cantidades insuficientes o has excedido el stock',3000 )
+                    setNotification('error', 'No hay stock o ya se agregaron todas las unidades para este artículo',3000 )
+                    removeWishList(item.id)
                 }
 
             }else{
 
-                (count < stock.cantidad) ? setCount(count + 1): setNotification('info', 'Cantidades insuficientes o has excedido el stock',3000 );
+                (count < stock.cantidad) ? setCount(count + 1) : (setNotification('info', 'Sin Stock',3000 ))
             }
         }
     }
@@ -75,12 +77,13 @@ const ItemCount = ({initial = 1, OnAdd}) => {
         
         if((count <= carrito && ((cart.length === 0)|| validarCarrito === undefined)) || (count <= carrito && (stock.cantidad - validarCarrito.agregados))){ 
          
-            OnAdd(count)
+            onAddWishList(count,item)
             setCarrito(carrito-count)
 
         }else{
 
-            setNotification('info', 'Cantidades insuficientes o has excedido el stock',3000 )  
+            setNotification('error', 'No hay stock o ya se agregaron todas las unidades para este artículo',3000)
+            removeWishList(item.id) 
         } 
     }
 
@@ -93,10 +96,11 @@ const ItemCount = ({initial = 1, OnAdd}) => {
                 <span>{count}</span>
                 <button className="botonesCantidad" onClick={incrementar}>+</button>
                 <button className="botonAdd" onClick={() => {botonAgregar()}}>Agregar al carrito</button>
+                <button className="botonAdd" onClick={() => removeWishList(item.id)}>Eliminar</button>
             </div>
             
         </div>
     )
 }
 
-export default ItemCount;
+export default ItemCountWishList;

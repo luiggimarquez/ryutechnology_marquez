@@ -1,7 +1,6 @@
 import { createContext, useState, useEffect} from "react";
 
 const Context = createContext();
-
 export const  CartContextProvider = ( { children }) => {
 
     const [cart,setCart] = useState([])
@@ -49,7 +48,6 @@ export const  CartContextProvider = ( { children }) => {
         }
     }
 
-  
     const clearItem = () => {
 
         setCart([]);
@@ -62,18 +60,13 @@ export const  CartContextProvider = ( { children }) => {
     }
 
     const removeOutOfStock = (ids) => {
+        
         let quitar =cart
-
-        console.log(ids)
         ids.forEach(toDelete =>{
 
             quitar = quitar.filter(elemento => elemento.id !== toDelete)
-            console.log(ids)
-            console.log(quitar)
             setCart(quitar)
         })
-
-        console.log(cart)
     }
 
     const getNumeroCarrito = () =>{
@@ -86,9 +79,33 @@ export const  CartContextProvider = ( { children }) => {
         return numero
     }
 
+    const getItemSubTotal = (precio,cantidad) => {
+
+        console.log(precio,cantidad)
+        return precio*cantidad
+    }
+
+    const getSubTotal =  () => {
+
+        let subTotal=0;
+        cart.forEach(elemento =>{
+
+            subTotal = subTotal + (elemento.agregados*elemento.precio)
+        })
+
+        return subTotal
+    }
+
+    const getTotal = () => {
+
+        let total = getSubTotal()*0.21 + getSubTotal()
+
+        return total
+    }
+
     return (
         
-        <Context.Provider value={{cart, addItem, clearItem,eliminarItem, getNumeroCarrito, removeOutOfStock }}>
+        <Context.Provider value={{cart, addItem, clearItem,eliminarItem, getNumeroCarrito, removeOutOfStock, getItemSubTotal, getSubTotal, getTotal }}>
             {children} 
         </Context.Provider>
     )

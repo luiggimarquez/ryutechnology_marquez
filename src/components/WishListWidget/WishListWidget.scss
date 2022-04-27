@@ -1,0 +1,16 @@
+.wishListWidget{
+    display: flex;
+    width: 15%;
+    align-self: center;
+
+    .wishLink{
+
+        width: 100%;
+        text-align: center;
+    }
+
+    .imgWish{
+        
+        width: 60%;
+    }
+}
