@@ -1,25 +1,99 @@
-.cart {
+.widgetContainer{
     
-    display: flex;
-    text-align: center;
-    width: 15%;
+    .cart{
 
-    .linkCart {
-
-        width: 100%;
-
-        .imgCart {
-            
-            vertical-align: middle;
-            width: 65%;
+        display: flex;
+        text-align: center;
+        width: 40%;
+        align-items: center;
+        justify-content: center;
         
+        a.linkCart {
+
+            width: 30%;
+
+            .imgCart {
+
+                width: 100%;
+            }
+        }
+
+        .countCart{
+
+            color: snow;
+            padding: 0 0 0 10px;
+            font-size: small;
         }
     }
+}
 
-    .countCart {
+
+
+
+@media screen and (min-width:769px) and (max-width: 1024px) {
     
-        color: snow;
-        padding: 10px;
-        font-size: small;
+    .widgetContainer{
+        
+        .cart{
+
+            a.linkCart {
+
+                width: 50%;
+            }
+        
+            .countCart{
+            
+                padding: 5px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:481px) and (max-width: 768px) {
+
+    .widgetContainer{
+
+        .cart{
+           
+            a.linkCart {
+
+                width: 40%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:320px) and (max-width: 480px) {
+
+    .widgetContainer{
+
+        .cart{
+           
+            a.linkCart {
+
+                width: 60%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 319px) {
+
+    .widgetContainer{
+
+        .cart{
+
+            width: 100%;
+           
+            a.linkCart {
+
+                width: 100%;
+
+                .imgCart {
+
+                    width: 45%;
+                }
+            }
+        }
     }
 }

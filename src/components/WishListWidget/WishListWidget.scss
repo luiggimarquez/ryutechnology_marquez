@@ -1,6 +1,6 @@
 .wishListWidget{
     display: flex;
-    width: 15%;
+    width: 30%;
     align-self: center;
 
     .wishLink{
@@ -11,6 +11,59 @@
 
     .imgWish{
         
+        width: 45%;
+    }
+}
+
+
+
+
+@media screen and (min-width:1024px) and (max-width: 1200px) {
+
+    .wishListWidget .imgWish {
         width: 60%;
+    }
+}
+
+@media screen and (min-width:769px) and (max-width: 1024px) {
+
+    .wishListWidget{ 
+    
+        .imgWish {
+
+            width: 72%;
+        }
+    }
+
+}
+@media screen and (min-width:481px) and (max-width: 768px) {
+
+    .wishListWidget .imgWish {
+        
+        width: 60%;
+    }
+
+
+}
+@media screen and (min-width:320px) and (max-width: 480px) {
+
+    .wishListWidget .imgWish {
+
+        width: 70%;
+    }
+
+
+}
+@media screen and (max-width: 319px) {
+
+    .wishListWidget{
+    
+        width: 50%;
+        text-align: center;
+
+        .imgWish{
+
+            width: 65%;
+        }
     }
 }

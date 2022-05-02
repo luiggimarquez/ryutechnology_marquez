@@ -15,7 +15,6 @@ const ItemCountWishList = ({initial = 1, onAddWishList, item}) => {
     const { setNotification } = useContext(NotificationContext)
     const { removeWishList } = useContext(WishListContext)
  
-    console.log(item)
     useEffect(()=>{
 
         setLimitItemCount(item.id).then((elemento) =>{

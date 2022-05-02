@@ -21,38 +21,27 @@ export const  WishListContextProvider = ( { children }) => {
 
     const validateItemWishList = (item) => {
 
-       console.log(item)
-       console.log(list)
         let validate = list.some(elemento => elemento.item.id === item)
-       
         return(validate)
-
     }
 
     const addWishList = (itemAgregado) => {
 
         
        list.length === 0 ? setList([itemAgregado]) : setList([...list, itemAgregado])
-
-
     }
 
     const removeWishList = (item) =>{
 
         let remove = list.filter(elemento => elemento.item.id !== item)
         setList(remove)
-
     }
 
-        console.log(list)
     return(
 
         <WishListContext.Provider value={ {list, addWishList, validateItemWishList, removeWishList} }>
             {children}
         </WishListContext.Provider>
-
     )
-
 }
-
 export default WishListContext

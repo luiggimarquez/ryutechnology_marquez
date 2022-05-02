@@ -7,7 +7,6 @@
     background-color: rgba(0, 139, 139, 0.192);
 
     h2{
-
         text-align: center;
         color: darkcyan;
     }
@@ -39,14 +38,11 @@
 
             margin: 0px 0 30px 0;
         }
-
-
     }
         text-align: center;
        
     .botonRegresar{
 
-        
         width: 30%;
         padding: 5px 10px;
         align-self: center;
@@ -68,7 +64,6 @@
         text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
         transition: box-shadow 0.15s ease, transform 0.15s ease;
     
-
         &:hover {
 
             box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%), 0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #0c4723;
@@ -87,9 +82,104 @@
         display: flex;
         width: 100%;
         flex-direction: column;
-        height: 78vh;
-
-        
+        height: 78vh; 
     }
+}
 
+@media screen and (min-width: 481px) and (max-width: 768px){
+
+    .purchaseOrderContainer{
+
+        .itemData{
+
+            p:nth-child(2){
+
+                margin-top: 10px;
+            }
+
+            .imgPurchaseOrder{
+
+                display: flex;
+                width: 100%;
+
+                img{
+
+                    width: 100%;
+                }
+            }
+        }
+
+        .botonRegresar {
+        
+            padding: 0 0em;
+        }
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 481px){
+
+    .purchaseOrderContainer{
+
+        .itemData{
+
+            p:nth-child(2){
+
+                margin-top: 10px;
+            }
+
+            .imgPurchaseOrder{
+
+                display: flex;
+                width: 100%;
+
+                img{
+
+                    width: 100%;
+                }
+            }
+        }
+
+        .botonRegresar {
+        
+            padding: 0 0em;
+            width: 40%;
+        }
+    }
+}
+
+@media screen and (max-width: 319px){
+
+    .purchaseOrderContainer{
+
+        .userData{
+
+            padding: 20px;
+
+        }
+
+        .itemData{
+
+            p:nth-child(2){
+
+                margin-top: 10px;
+            }
+
+            .imgPurchaseOrder{
+
+                display: flex;
+                width: 100%;
+
+                img{
+
+                    width: 100%;
+                }
+            }
+        }
+
+        .botonRegresar {
+        
+            padding: 0 0em;
+            width: 50%;
+        }
+    }
 }

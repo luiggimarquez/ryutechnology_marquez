@@ -1,7 +1,7 @@
 import {onAuthStateChanged, getAuth, setPersistence, browserLocalPersistence } from "firebase/auth";
 import { userLoginFirebase, userRegisterFirebase, userSignOutFirebase } from "../services/Auth";
 import NotificationContext from "./NotificationContext";
-import { useContext, useState } from "react"
+import { useContext, useState, useEffect } from "react"
 import { app } from "../services/Index"
 import { createContext } from "react";
 
@@ -28,6 +28,20 @@ export const  UserContextProvider = ({ children }) => {
         }
     });
 
+    useEffect(() => {
+
+        let a = false
+        setTimeout(() => {
+
+            setLoading(a)
+        },1000)
+
+        return (() => {
+
+            setLoading([])
+        })
+    },[])
+
     const register = (name, password, phone, mail) => {
  
         userRegisterFirebase(name, password, phone, mail).then((userCredential)=>{
@@ -36,7 +50,7 @@ export const  UserContextProvider = ({ children }) => {
 
         }).catch(() => {
 
-            setNotification('error',`Mail: ${mail} ya está registrado`,3000);    
+            setNotification('error',`Verificar el mail, puede que esté en blanco o ya haya sido registrado`,3000);    
         }); 
     }
 
@@ -66,8 +80,8 @@ export const  UserContextProvider = ({ children }) => {
     const getOrderNumber = (id) =>{
 
         setOrderNumber(id)
-    } 
-    
+    }
+
     if(loading){
 
         return (

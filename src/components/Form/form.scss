@@ -15,20 +15,8 @@
         margin: 15px;
         text-align: center;
         color: darkcyan;
-
     }
 
-    .botonLogin, .botonLogout{
-       
-        align-self: center;
-        display:inline;
-        width: 20%;
-        border:1px solid #000;
-        border-radius: 5px;
-        background-color: rgb(255, 247, 247);
-        margin-top:15px
-
-    }
     
     .formContainer{
 
@@ -38,57 +26,216 @@
 
         .formularioContacto{ /* Formulario en contacto.html */
 
-        width:565px;
-        padding:16px;
-        border-radius:14px;
-        margin: 100px 0 150px 0;
-        align-self: center;
-        background-color:rgba(0, 139, 139, 0.692);
-    
-        input{ 
+            width:565px;
+            padding:16px;
+            border-radius:14px;
+            margin: 100px 0 150px 0;
+            align-self: center;
+            background-color:rgba(0, 139, 139, 0.692);
+        
+            input{ 
 
-        &[type="text"], 
-        &[type="email"], &[type="tel"], &[type="password"]{ /* Estilo y posicion  para los elementos del formulario */
-            
-            display:inline;
-            width: 248px;
-            margin:5px 0 0 12px;
-            border:1px solid rgba(69, 69, 158, 0.651);
-            border-radius: 5px;
-            background-color: rgb(255, 255, 255);
-            padding:3px 10px;
+                &[type="text"], 
+                &[type="email"], &[type="tel"], &[type="password"]{ /* Estilo y posicion  para los elementos del formulario */
+                    display:inline;
+                    width: 248px;
+                    margin:5px 0 0 12px;
+                    border:1px solid rgba(69, 69, 158, 0.651);
+                    border-radius: 5px;
+                    background-color: rgb(255, 255, 255);
+                    padding:3px 10px;
+                }
+            } //Cierre input
         }
-    } //Cierre input
-
-    button[type="submit"], input[type="reset"]{  /* Estilo y posición  para los botones del formulario */
-    
-        display:inline;
-        width: 135px;
-        margin:32px 0 0 88px;
-        border:1px solid #000;
-        border-radius: 5px;
-        background-color: rgb(255, 247, 247);
-    }
-
-    button[type="submit"]:active, input[type="reset"]:active{
-
-        background-color:lightgreen;
-        color: snow;
-    }
-
-    textarea{  /* Área de texto para la consulta en contacto.html */
-
-        display:inline;
-        width: 519px;
-        margin:16px 0 0 8px;
-        border:1px solid rgba(69, 69, 158, 0.651);
-        border-radius: 3px;
-        background-color: #ffffff;
-        height:150px;
-        resize:none;
-        padding: 5px;
-    }
-    }
-
     } 
 }
+
+.buttomForm{  /* Estilo y posición  para los botones del formulario */
+        
+    width: 35%;
+    align-self: center;
+    display: inline-block;
+    margin: 15px 38px;
+    border: 1px solid #4f4f4f;
+    border-radius: 4px;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    color: black;
+    z-index: 1;
+
+
+    &:before, &:before, &:before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) scaleY(1) scaleX(1.25);
+        top: 100%;
+        width: 140%;
+        height: 180%;
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 50%;
+        display: block;
+        transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+        z-index: -1;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        left: 55%;
+        transform: translateX(-50%) scaleY(1) scaleX(1.45);
+        top: 180%;
+        width: 160%;
+        height: 190%;
+        background-color: #39bda7;
+        border-radius: 50%;
+        display: block;
+        transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+        z-index: -1;
+    }
+
+    &:hover,&:hover,&:hover {
+        color: #ffffff;
+        border: 1px solid #39bda7 !important;
+    }
+
+    &:hover:before {
+        top: -35%;
+        background-color: #39bda7;
+        transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+    }
+
+    &:hover:after {
+        top: -45%;
+        background-color: #39bda7;
+        transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+    }
+}
+
+.buttomSubmit{
+
+    @extend .buttomForm;
+    width: 15%;
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px){
+
+
+    .buttomSubmit {
+
+        width: 27%;
+    }
+
+    .buttomForm{
+
+        margin: 15px 28px;
+    }
+
+    .loginContainer{
+        
+        .formContainer{
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            .formularioContacto{ 
+
+                width:450px;
+            
+                input{ 
+
+                    &[type="text"], 
+                    &[type="email"], &[type="tel"], &[type="password"]{ 
+                        
+                        width: 191px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 480px){
+
+
+    
+
+    .buttomForm{
+
+        margin: 11px 18px;
+        
+    }
+    .buttomSubmit {
+
+        width: 40%;
+    }
+
+    .loginContainer{
+        
+        .formContainer{
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            .formularioContacto{ 
+
+                width:300px;
+            
+                input{ 
+
+                    &[type="text"], 
+                    &[type="email"], &[type="tel"], &[type="password"]{ 
+                        
+                        width: 240px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 319px){
+
+
+    
+
+    .buttomForm{
+
+        margin: 11px 18px;
+        width: 80%;
+        
+    }
+    
+    .buttomSubmit {
+
+        width: 55%;
+    }
+
+    .loginContainer{
+        
+        .formContainer{
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            .formularioContacto{ 
+
+                width:200px;
+            
+                input{ 
+
+                    &[type="text"], 
+                    &[type="email"], &[type="tel"], &[type="password"]{ 
+                        
+                        width: 150px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+   

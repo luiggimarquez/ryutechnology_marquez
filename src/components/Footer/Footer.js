@@ -6,10 +6,13 @@ import facebook from "./RRSS/facebook.svg"
 import {Link, NavLink} from "react-router-dom"
 import { useState, useEffect } from "react";
 import { getNavbar } from "../../services/Firestore";
+import { Navbar, Container} from 'react-bootstrap'
+import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse"
 
 const Footer = () => {
 
     const [menu, setMenu] = useState([])
+    const [expanded, setExpanded] = useState(false);
 
     useEffect(() => {
 
@@ -21,6 +24,12 @@ const Footer = () => {
             
             console.log(error);
         })
+
+        return (() => {
+            
+            setMenu([])
+        })
+           
     },[])
 
     return(
@@ -34,10 +43,15 @@ const Footer = () => {
 
                     <div className ="contenedorMenuFooter">
                         <ul className ="menuNavFooter">
-
-                            <NavLink to="/" className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>Home</li></NavLink>
-                            {menu.map(elemento => <NavLink key={elemento.id} to={`/category/${elemento.nombre}`}  className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>{`${elemento.nombre}s`}</li></NavLink>)}
-                            
+                        <Navbar collapseOnSelect expand="lg" expanded={expanded}>
+                        <Container id="container">
+                            <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={() => setExpanded(expanded ? false : "expanded")}/>
+                            <NavbarCollapse className="colpaseColumn" id="responsive-navbar-nav">
+                                <NavLink to="/" onClick={() => setExpanded(false)} className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>Home</li></NavLink>
+                                {menu.map(elemento => <NavLink onClick={() => setExpanded(false)} key={elemento.id} to={`/category/${elemento.nombre}`}  className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>{`${elemento.nombre}s`}</li></NavLink>)}
+                            </NavbarCollapse>
+                        </Container> 
+                    </Navbar> 
                         </ul>
                     </div>
                         

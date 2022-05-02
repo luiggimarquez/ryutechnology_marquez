@@ -23,11 +23,9 @@ const PurchaseOrder = () =>{
             setPurchaseOrder(items);
 
         }).catch(error =>{
-
             console.log(error);
 
         }).finally(()=>{
-
             setLoading(false)
         })
 
@@ -56,7 +54,6 @@ const PurchaseOrder = () =>{
     }
 
     resultado = purchaseOrder.find(elemento => elemento.id === orderNumber)
-    console.log(orderNumber.length)
  
     return(
 
@@ -81,7 +78,7 @@ const PurchaseOrder = () =>{
                         
                         { resultado.items.map(elemento =><div key={elemento.id}>
                             
-                            <picture><img src={elemento.img} alt="Foto producto comprado"/></picture>
+                            <picture className="imgPurchaseOrder"><img src={elemento.img} alt="Foto producto comprado"/></picture>
                             <p>Producto: {elemento.nombre}</p>
                             <p>Marca: {elemento.marca}</p>
                             <p>Cantidad comprada: {elemento.agregados}</p>

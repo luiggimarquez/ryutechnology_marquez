@@ -19,8 +19,7 @@ const ItemDetail = ({item}) => {
     }
 
     let validate = validateItemWishList(item.id)
-    console.log(validate)
-   
+
     return(
 
         <div className="contenedorDetails"> 
@@ -34,8 +33,8 @@ const ItemDetail = ({item}) => {
                 <p>Categoría: {item.categoria}</p>
                 <p>Precio: {item.precio} USD</p>
                 { item.cantidad === 0 ? null: ((quantity === 0) ? <ItemCount inicial={1} OnAdd={OnAdd}/>: <Link to="/cart"><button className="irCart">Ir a Cart</button> </Link>) }
-                {(item.cantidad !== 0) ? <p>Stock disponible: {item.cantidad}</p> : <p>Articulo sin Stock</p>}
-                { (!validate) ? <button onClick={() => addWishList({item})} >Agregar a WishList</button>: <button onClick={() => removeWishList(item.id)} >Remover de WishList</button>} 
+                {(item.cantidad !== 0) ? <p className="parrafoStock">Stock disponible: {item.cantidad}</p> : <p className="parrafoStock">Articulo sin Stock</p>}
+                { (!validate) ? <button className="addWishButtom" onClick={() => addWishList({item})} >Agregar a WishList</button> : <button className="removeWishButtom" onClick={() => removeWishList(item.id)} >Remover de WishList</button>} 
             </div>
             
             <div className="detalleDetails">

@@ -17,6 +17,7 @@ const Form = () => {
     const [password, setPassword] = useState([])
     const [toggle, setToggle] = useState(false)
     let history = useNavigate();
+    let ordenes = useNavigate();
 
     useEffect(() => {
 
@@ -61,8 +62,9 @@ const Form = () => {
                             
                             <input onChange={(e) => setMail(e.target.value) } type="email" placeholder="Mail" name="mail" required />
                             <input onChange={(e) => setPassword(e.target.value) }type="password" placeholder="Password" name="password" required autoComplete="on"/>
-                            <button type="submit" name="submit" onClick={(e) =>{ e.preventDefault(); login(mail, password);}}>Enviar</button>
-                            <input type="reset" value="Restablecer"/>
+                            <button className="buttomForm" type="submit" name="submit" onClick={(e) =>{ e.preventDefault(); login(mail, password);}}>Enviar</button>
+                            <button className="buttomForm"  type="reset" value="Restablecer">Restablecer</button>
+
                             
                         </form>
 
@@ -80,14 +82,14 @@ const Form = () => {
                             <input onChange={(e) => setPassword(e.target.value) }type="password" placeholder="Password" name="password" required autoComplete="on"/>
                             <input onChange={(e) => setPhone(e.target.value) } type="tel" placeholder="Teléfono" name="phone" required />
                             <input onChange={(e) => setMail(e.target.value) } type="email" placeholder="Mail" name="mail" required />
-                            <button  type="submit" name="submit" onClick={(e) =>{ e.preventDefault(); register(name, password, phone, mail); }}>Enviar</button>
-                            <input type="reset" value="Restablecer"/> 
+                            <button className="buttomForm" type="submit" name="submit" onClick={(e) =>{ e.preventDefault(); register(name, password, phone, mail); }}>Enviar</button>
+                            <button className="buttomForm"  type="reset" value="Restablecer">Restablecer</button>
 
                         </form> 
 
                     </div>
                 )}
-                <button className="botonLogin" onClick={() => setToggle(!toggle)}>{toggle ? "Login": "Register"  }</button>
+                <button className="buttomSubmit" onClick={() => setToggle(!toggle)}>{toggle ? "Login": "Register"  }</button>
             </div>
         )} 
             
@@ -96,8 +98,9 @@ const Form = () => {
             <div className="loginContainer">
                 
                 <p>Usuario: { user.email}</p> 
-                <button className="botonLogout" onClick={(e) =>{ e.preventDefault(); signOut(); } }>Cerrar sesion</button>
-                <button className="botonLogout" onClick={() => history(-1)}> regresar</button> 
+                <button className="buttomSubmit" onClick={(e) =>{ e.preventDefault(); signOut(); } }>Cerrar sesion</button>
+                <button className="buttomSubmit" onClick={() => history(-1)}>Regresar</button> 
+                <button className="buttomSubmit" onClick={() => ordenes('/orders')}>Ir a mis ordenes</button> 
 
             </div>           
         }

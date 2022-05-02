@@ -14,6 +14,7 @@ import error404 from "./assets/error404.json"
 import Form from "./components/Form/Form"
 import PurchaseOrder from "./components/PurchaseOrder/PurchaseOrder"
 import WishList from "./components/WishList/WishList"
+import Orders from './components/Orders/Orders';
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
                             <Route path="/formulario" element={<Form/>} />
                             <Route path="/purchaseorder" element={<PurchaseOrder/>} />
                             <Route path="/wishlist" element={<WishList/>}></Route>
+                            <Route path="/orders" element={<Orders/>}></Route>
                             <Route path="*" element={<section className='error404'><Lottie {...options}/></section>} />
 
                             </Routes>

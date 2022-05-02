@@ -10,22 +10,11 @@ const WishList = () => {
 
     const { addItem } = useContext(CartContext)
     const { list, removeWishList } = useContext(WishListContext)
-
+    const options = {animationData: itemNotFound, autoplay: true, loop: true,style: {width: '50%',alignSelf: 'center'}}
     const onAddWishList = (agregados,item) =>{
 
         addItem({agregados,...item})
         removeWishList(item.id)
-    }
-
-    const options = {
-
-        animationData: itemNotFound,
-        autoplay: true,
-        loop: true,
-        style: {
-            width: '50%',
-            alignSelf: 'center',
-        },
     }
 
     return(<>
@@ -34,9 +23,10 @@ const WishList = () => {
             <div className="wishList">
 
                 <h1>Wish List</h1>
-                {list.map(elemento => <div className="itemsWishList" key={elemento.item.id}><p>Artículo {elemento.item.nombre}</p> <p>Marca: {elemento.item.marca}</p><ItemCountWishList inicial={1} onAddWishList={onAddWishList} item={elemento.item} /></div>) }
+                {list.map(elemento => <div className="itemsWishList" key={elemento.item.id}><p>Artículo: {elemento.item.nombre}</p> <p>Marca: {elemento.item.marca}</p><ItemCountWishList inicial={1} onAddWishList={onAddWishList} item={elemento.item} /></div>) }
+                {(list.length <= 2) && <div className="guarda"></div>}
                 
-            </div> : <div className="accessLottieWish"><Lottie {...options}/><h1>Nada que ver por aquí</h1></div>
+            </div> : <div className="accessLottieWish"><Lottie {...options}/><h1>WishList Vacío ... Nada que ver por aquí</h1></div>
         }
     
     </>)

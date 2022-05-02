@@ -80,38 +80,29 @@ header{
             }
         }
 
-        .cart{
-
+        .widgetContainer{    
             
             display: flex;
-            text-align: center;
-            width: 15%;
+            justify-content: center;
+            width: 100%;
             
-            a.linkCart {
+            .actualUserNav {
 
-                width: 100%;
+                text-decoration: none;
+                color: white;
+                text-align: center;
+                width: 30%;
+                align-self: center;
 
-                .imgCart {
+                .iconUser {
+                    width: 35px;
+                }
+                p{
 
-                    vertical-align: middle;
-                    width: 65%;
-                
+                    margin:0px;
                 }
             }
         }
-
-        .actualUserNav {
-
-            text-decoration: none;
-            color: white;
-            text-align: center;
-            width: 15%;
-            align-self: center;
-
-            .iconUser {
-                width: 25px;
-            }
-        }         
     }
 }
 
@@ -134,9 +125,6 @@ header{
             color:white;
         }
     }
-
-
-
 }
 
 .dropdown-menu{
@@ -152,7 +140,6 @@ header{
     &:hover{
 
         background-color: rgba(0, 139, 139, 0.281) ;
-        
     }
 }
 
@@ -164,4 +151,274 @@ header{
 .dropdown-item.active, .dropdown-item:active{
 
     background-color: rgba(0, 139, 139, 0.671);
+}
+
+
+@media screen and (min-width:1024px) and (max-width: 1200px) {
+
+    header{
+    
+        .alineadorLogo h1 {
+     
+            font-size: 30px;
+        }
+    
+        .navBar{
+
+            .widgetContainer{
+            
+                .actualUserNav .iconUser {
+                    width: 25px;
+                }
+            }
+
+            .menuNav {
+        
+                justify-content: center;
+            }
+        }
+    }
+  
+    .navbar-collapse {
+       
+        margin-top: 10px;
+    }
+}
+
+@media screen and (min-width:769px) and (max-width: 1023px) {
+
+    header{ 
+        
+        .alineadorLogo{
+            
+            h1{
+                font-size: 25px;
+                padding: 19px 0px;
+            }
+
+            .logoHeader {
+
+                width: 4rem;
+            }
+        }
+
+        .navBar{
+
+            .menuNav {
+
+                margin:0px;
+                padding: 0px;
+                justify-content: center;
+                    
+                .a{
+
+                    text-align: center;
+                }
+            }
+        }
+
+    }
+
+    #container, .container{
+                
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar-collapse {
+       
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width:481px) and (max-width: 768px) {
+
+    header{ 
+        
+        flex-direction: column;
+
+        .alineadorLogo{
+
+            justify-content: center;
+            
+            h1{
+                font-size: 30px;
+                padding: 19px;
+                text-align: center;
+            }
+            
+            .logoHeader {
+
+                width: 4rem;
+            }
+        }
+
+        .navBar{
+
+            justify-content: center;
+            width: 100%;
+            
+            .menuNav {
+    
+                margin:0px;
+                padding: 0px;
+                justify-content: center;
+                        
+                .a{
+                    text-align: center;
+                }
+            }
+            
+        }
+    }
+
+    #container, .container{
+                
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-link {
+        
+        margin-left: 0;
+    }
+
+    .navbar-collapse {
+       
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width:320px) and (max-width: 480px) {
+    
+    header{ 
+        
+        flex-direction: column;
+
+        .alineadorLogo{
+
+            justify-content: center;
+            
+            h1{
+                font-size: 22px;
+                padding: 20px 0 0 0;
+                text-align: center;
+            }
+            
+            .logoHeader {
+
+                width: 4rem;
+            }
+        }
+
+        .navBar{
+
+            justify-content: center;
+            width: 100%;
+
+            .menuNav {
+
+                margin:0px;
+                padding: 0px;
+                padding-left: 0rem;
+                
+            }
+
+            .widgetContainer{ 
+            
+                .actualUserNav{
+
+                    .iconUser {
+
+                        width: 25px;
+                    }
+                }
+            }
+        }
+    }
+
+    .nav-link {
+        
+        margin-left: 0;
+    }
+}
+@media screen  and (max-width: 319px) {
+    
+    header{ 
+        
+        flex-direction: column;
+
+        .alineadorLogo{
+
+            align-items: center;
+            justify-content: center;
+            
+            h1{
+                font-size: 15px;
+                align-self: center;
+                padding: 19px;
+                text-align: center;
+            }
+            
+            .logoHeader {
+
+                width: 3rem;
+            }
+        }
+
+        .navBar{
+
+            justify-content: center;
+            width: 100%;
+            flex-direction: column;
+
+            .menuNav {
+
+                margin:0px;
+                padding: 0px;
+                padding-left: 0rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .widgetContainer {
+
+                display: flex;
+                justify-content: center;
+                width: 90%;
+            
+                .actualUserNav{
+
+                    .iconUser {
+
+                        width: 25px;
+                    }
+                }
+            }
+
+        }
+    }
+
+    #container, .container{
+                
+        align-items: center;
+        justify-content: center;
+    }
+    .nav-link {
+        
+        margin-left: 0;
+    }
+
+    .navbar-collapse {
+       
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+   
 }
