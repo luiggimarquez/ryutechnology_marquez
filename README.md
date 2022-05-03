@@ -86,8 +86,51 @@ La página se recargará cada vez que guardes cambios (CTRL + S) y podrás visua
 
 ## Resumen del proyecto 📜
 
-* La base de datos, Firebase, esta configurada en la carpeta /services, la cual posee tres archivos, Index.js, que es donde se configura Firebase. Para este proyecto estos datos son privados, si deseas trabajar con tu propia base datos puedes configurarla aquí. El archivo Firestore.js contiene las llamadas asícronas a la base datos, Firestore , de aquí se lee y se escribe nuestra base de datos; y el archivo Auth.js, posee las configuraciones para registro, login y logout de usuarios con Authentication de Firebase.
+* La base de datos, Firebase, esta configurada en la carpeta `/services`, la cual posee tres archivos, **Index.js**, que es donde se configura Firebase. Para este proyecto estos datos son privados, si deseas trabajar con tu propia base datos puedes configurarla aquí. El archivo **Firestore.js** contiene las llamadas asícronas a la base datos, Firestore , de aquí se lee y se escribe nuestra base de datos; y el archivo **Auth.js**, posee las configuraciones para registro, login y logout de usuarios con Authentication de Firebase.
 
+
+* Nuestro stock es manejado en Firebase como un array de objetos, que tiene la siguiente estructura
+
+>>cantidad: (number)
+>>categoria: (string)
+>>detalle: (string)
+>>id: (string)
+>>img: "/img/example.jpg"
+>>marca: (string)
+>>nombre: (string)
+>>precio: (number)
+>>tipo: (string)
+
+>>Las imágenes, img, están almacenadas en una carpeta `IMG` en el folder `Public`
+
+* La autenticación está establecida en Firebase como `Correo electrónico/contraseña`
+
+* **ProductsAdapters.js** de `adapters` se utiliza para convertir nuestros datos adquiridos de Firebase a variables más amigables para nuestra manipulación, globalizando en nuestra app un formato local independiente al Firebase, es decir, podemos optimizar futuros cambios en nuestra base de datos de forma rápida solo cambiando nuestro Adapter sin tener que realizar otro cambio en toda nuestra aplicación.
+
+* En **App.js** ocurren todos los enrutamientos de nuestra página mediante `react-router-dom` asi como el llamado a todos nuestros `Context`. Hay una ruta por defecto por si se ingresa un URL inválido y es capturado por una animación con `Lottie`:
+
+![Lottie Error404](./public/error404.jpg)
+
+* La carpeta `assets` contiene dos JSON que se usaron para las animaciones de **Lottie**
+
+* Folder `Context`: aqui tenemos los datos que manejamos globalmente en la app:
+
+>> **CartContex.js**: En CartContex se realiza todas las operaciones relacionadas al carrito de compras; aquí mediante `useEffect` se almacena, borra y se lee en el localStorage del navegador los datos almacenados en nuestros **carrito de compras**. Tenemos las funciones de:
+
+>>>addItem: para agregar artículos al carrito.
+>>>clearItem: para vaciar el carrito.
+>>>eliminarItem: borrar un artículo.
+>>>removeOutofStock: para eliminar los articulos del carrito que esten sin stock.
+>>>getNumeroCarrito: para colocar el numero de artículos del CartWidget.
+>>>getItemSubTotal: cálculo del subtotal de cada artículo.
+>>>getSubtotal: cálculo del subtotal general de artículos.
+>>>getTotal: cálculo del total de la compra con IVA.
+
+>>**NotificationContext.js**: es el servicio de notificaciones del app. En él tenemos la declaración del `sweetalert2`. Para llamar las notificaciones pasamos tres variables como parámetros: tipo de alerta `(warning, error, success, info and question)`, un string con el mensaje y el tiempo de duración. Se utilizó la la notificación tipo `Toast`.
+
+>>**UserContext.js**: es el servicio de autenticación de usuarios. Está configurado en autenticación persistente, hay que hacer logout para salir. En este Context tenemos las funciones de registro de usuario, `register` , `login` para iniciar sesión y `signOut` para hacer logout.
+
+>>**WishListContext.js**: nos permite mantener en toda la app el `WishList`. Aquí en este Context mediante `addWishList`, `removewishList` y `validateItemWishList` se agregan borran y se tiene control del los items en el WishList del app. `ValidateItemWishList` permite hacer toggle en el boton de wishlist para agregar o remover el articulo.
 
 
 

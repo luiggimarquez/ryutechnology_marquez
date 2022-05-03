@@ -32,19 +32,19 @@ function App() {
                 <UserContextProvider>
                     <WishListContextProvider>
                         <CartContextProvider>
-                    <       BrowserRouter>
+                        <BrowserRouter>
                             <NavBar />
                             <Routes>
 
-                            <Route path= "/" element={<ItemListContainer saludo="Listado de productos"/>}/>
-                            <Route path="/item/:id" element={<ItemDetailContainer/>} />
-                            <Route path="/category/:id" element={<ItemListContainer/>}/>
-                            <Route path="/cart" element={<Cart/>} />
-                            <Route path="/formulario" element={<Form/>} />
-                            <Route path="/purchaseorder" element={<PurchaseOrder/>} />
-                            <Route path="/wishlist" element={<WishList/>}></Route>
-                            <Route path="/orders" element={<Orders/>}></Route>
-                            <Route path="*" element={<section ><Lottie className='error404'{...options}/></section>} />
+                                <Route path= "/" element={<ItemListContainer saludo="Listado de productos"/>}/>
+                                <Route path="/item/:id" element={<ItemDetailContainer/>} />
+                                <Route path="/category/:id" element={<ItemListContainer/>}/>
+                                <Route path="/cart" element={<Cart/>} />
+                                <Route path="/formulario" element={<Form/>} />
+                                <Route path="/purchaseorder" element={<PurchaseOrder/>} />
+                                <Route path="/wishlist" element={<WishList/>}></Route>
+                                <Route path="/orders" element={<Orders/>}></Route>
+                                <Route path="*" element={<section ><Lottie className='error404'{...options}/></section>} />
 
                             </Routes>
                             <Footer />
