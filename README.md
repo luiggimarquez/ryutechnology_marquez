@@ -68,7 +68,7 @@ La página se recargará cada vez que guardes cambios (CTRL + S) y podrás visua
 
 * Está instalada la dependencia `SweetAlert2` versión 11.4.6 para las ventanas emergentes de avisos, por ejemplo está usada para indicar que se excede el stock al agregar los artículos con el ItemCount.js, para indicar los errores de login, de registro de usuario, para notificar el ID del producto y para indicar cuando un producto no se puede cargar en la compra por estar sin stock.
 
-* Los errores de página, como el error 404 para routes que no existen, articulos que no estan registrados en el stock, wishlist vacío, entre otros, se usó la dependencia `lottie-react`
+* Para los errores de página que no existe, como el error 404 para routes que no existen, artículos que no estan registrados en el stock, wishlist vacío, entre otros, se usó la dependencia `lottie-react`
 
 * Como Database se usó firebase, que es una base de datos no relacional, NoSQL
 
@@ -86,11 +86,11 @@ La página se recargará cada vez que guardes cambios (CTRL + S) y podrás visua
 
 ## Resumen del proyecto 📜
 
-* La base de datos, Firebase, esta configurada en la carpeta `/services`, la cual posee tres archivos, **Index.js**, que es donde se configura Firebase. Para este proyecto estos datos son privados, si deseas trabajar con tu propia base datos puedes configurarla aquí. El archivo **Firestore.js** contiene las llamadas asícronas a la base datos, Firestore , de aquí se lee y se escribe nuestra base de datos; y el archivo **Auth.js**, posee las configuraciones para registro, login y logout de usuarios con Authentication de Firebase.
+* La base de datos, Firebase, esta configurada en la carpeta `/services`, la cual posee tres archivos, **Index.js**, que es donde se configura Firebase. Para este proyecto estos datos son privados, si deseas trabajar con tu propia base datos puedes configurarla aquí. El archivo **Firestore.js** contiene las llamadas asíncronas a la base datos, Firestore , de aquí se lee y se escribe nuestra base de datos; y el archivo **Auth.js**, posee las configuraciones para registro, login y logout de usuarios con Authentication de Firebase.
 
 
 * Nuestro stock es manejado en Firebase como un array de objetos, que tiene la siguiente estructura
-
+```
 - cantidad: (number)
 - categoria: (string)
 - detalle: (string)
@@ -100,12 +100,13 @@ La página se recargará cada vez que guardes cambios (CTRL + S) y podrás visua
 - nombre: (string)
 - precio: (number)
 - tipo: (string)
+```
 
 >>Las imágenes, img, están almacenadas en una carpeta `IMG` en el folder `Public`
 
 * La autenticación está establecida en Firebase como `Correo electrónico/contraseña`
 
-* **ProductsAdapters.js** de `adapters` se utiliza para convertir nuestros datos adquiridos de Firebase a variables más amigables para nuestra manipulación, globalizando en nuestra app un formato local independiente al Firebase, es decir, podemos optimizar futuros cambios en nuestra base de datos de forma rápida solo cambiando nuestro Adapter sin tener que realizar otro cambio en toda nuestra aplicación.
+* **ProductsAdapters.js**: `adapters` se utiliza para convertir nuestros datos adquiridos de Firebase a variables más amigables para nuestra manipulación, globalizando en nuestra app un formato local independiente al Firebase, es decir, podemos optimizar futuros cambios en nuestra base de datos de forma rápida solo cambiando nuestro Adapter sin tener que realizar otro cambio en toda nuestra aplicación.
 
 * En **App.js** ocurren todos los enrutamientos de nuestra página mediante `react-router-dom` asi como el llamado a todos nuestros `Context`. Hay una ruta por defecto por si se ingresa un URL inválido y es capturado por una animación con `Lottie`:
 
