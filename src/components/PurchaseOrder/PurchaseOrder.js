@@ -59,39 +59,39 @@ const PurchaseOrder = () =>{
 
         <div className="purchaseOrderContainer">
 
-            {((userId !== undefined) && orderNumber.length !== 0)  ? <><h2>Detalles - orden de compra</h2>
-            { (resultado !== undefined) && 
+            {((userId !== undefined) && orderNumber.length !== 0)  ?
             
-                <>
-                    <div className="userData">
+                <><h2>Detalles - orden de compra</h2>
+                    { (resultado !== undefined) && 
+                    
+                        <>
+                            <div className="userData">
 
-                        <p>ID de compra: <b>{resultado.id}</b></p>
-                        <p>Nombre: {resultado.buyer.name}</p>
-                        <p>Mail: {resultado.buyer.email}</p>
-                        <p>Teléfono: {resultado.buyer.phone}</p>
-                        <p>Fecha compra: {resultado.date}</p>
-                        <p>Monto: {resultado.total} USD</p>
-                        
-                    </div>
+                                <p>ID de compra: <b>{resultado.id}</b></p>
+                                <p>Nombre: {resultado.buyer.name}</p>
+                                <p>Mail: {resultado.buyer.email}</p>
+                                <p>Teléfono: {resultado.buyer.phone}</p>
+                                <p>Fecha compra: {resultado.date}</p>
+                                <p>Monto: {resultado.total} USD</p>
+                                
+                            </div>
 
-                    <div className="itemData">
-                        
-                        { resultado.items.map(elemento =><div key={elemento.id}>
-                            
-                            <picture className="imgPurchaseOrder"><img src={elemento.img} alt="Foto producto comprado"/></picture>
-                            <p>Producto: {elemento.nombre}</p>
-                            <p>Marca: {elemento.marca}</p>
-                            <p>Cantidad comprada: {elemento.agregados}</p>
-                        
-                        </div>)}  
-                    </div>
-                </>
-            }
-            
-            
-            <Link to="/"><button className="botonRegresar" >Volver a Home</button></Link>
-            </> : <div className="accessLottie"><Lottie {...options}/><h1>Nada que ver por aquí</h1></div>
-            
+                            <div className="itemData">
+                                
+                                { resultado.items.map(elemento =><div key={elemento.id}>
+                                    
+                                    <picture className="imgPurchaseOrder"><img src={elemento.img} alt="Foto producto comprado"/></picture>
+                                    <p>Producto: {elemento.nombre}</p>
+                                    <p>Marca: {elemento.marca}</p>
+                                    <p>Cantidad comprada: {elemento.agregados}</p>
+                                
+                                </div>)}  
+                            </div>
+                        </>
+                    }
+                
+                    <Link to="/"><button className="botonRegresar" >Volver a Home</button></Link>
+                </> : <div className="accessLottie"><Lottie {...options}/><h1>Nada que ver por aquí</h1></div>
             }
 
         </div>

@@ -1,4 +1,5 @@
 .wishListWidget{
+    
     display: flex;
     width: 30%;
     align-self: center;
@@ -14,9 +15,6 @@
         width: 45%;
     }
 }
-
-
-
 
 @media screen and (min-width:1024px) and (max-width: 1200px) {
 
@@ -34,26 +32,24 @@
             width: 72%;
         }
     }
-
 }
+
 @media screen and (min-width:481px) and (max-width: 768px) {
 
     .wishListWidget .imgWish {
         
         width: 60%;
     }
-
-
 }
+
 @media screen and (min-width:320px) and (max-width: 480px) {
 
     .wishListWidget .imgWish {
 
         width: 70%;
     }
-
-
 }
+
 @media screen and (max-width: 319px) {
 
     .wishListWidget{

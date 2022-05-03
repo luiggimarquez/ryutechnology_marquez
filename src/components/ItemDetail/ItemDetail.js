@@ -6,7 +6,6 @@ import { useContext } from "react";
 import Context from '../../context/CartContext';
 import WishListContext from "../../context/WishListContext";
 
-
 const ItemDetail = ({item}) => {
 
     const [quantity,setQuantity]=useState(0);

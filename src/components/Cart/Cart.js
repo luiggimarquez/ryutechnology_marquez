@@ -115,10 +115,8 @@ const Cart = () =>{
             <div className="montoPago">Subtotal a pagar: {getSubTotal()} USD</div> <div className="montoPago">Total a pagar: {getTotal()} USD</div>
             <button className="borrarCarrito" onClick={() => clearItem()}> Borrar carrito </button> <button className="borrarCarrito" onClick={() => (user.length !== 0)?createOrder():handleClick() }>Procesar compra</button></> : <div className="carritoVacio"><img src="/img/empty_cart.png" alt="imagen carro vacío"/><h3>El carrito está vacio</h3><Link to="/"><button className="borrarCarrito">Volver a Home</button></Link></div>
             }
-            
         </div>
     )
-
 }
 
 export default Cart

@@ -23,9 +23,6 @@ function App() {
         animationData: error404,
         autoplay: true,
         loop: true,
-        style: {
-            width: '40%',
-        },
     }
 
     return (
@@ -47,7 +44,7 @@ function App() {
                             <Route path="/purchaseorder" element={<PurchaseOrder/>} />
                             <Route path="/wishlist" element={<WishList/>}></Route>
                             <Route path="/orders" element={<Orders/>}></Route>
-                            <Route path="*" element={<section className='error404'><Lottie {...options}/></section>} />
+                            <Route path="*" element={<section ><Lottie className='error404'{...options}/></section>} />
 
                             </Routes>
                             <Footer />

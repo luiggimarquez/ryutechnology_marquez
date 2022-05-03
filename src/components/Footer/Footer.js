@@ -38,20 +38,19 @@ const Footer = () => {
             <footer className="footerPrincipal">
 
                 <h3>Contacto</h3>
-
                 <div className ="footerAlineacion"> 
 
                     <div className ="contenedorMenuFooter">
                         <ul className ="menuNavFooter">
                         <Navbar collapseOnSelect expand="lg" expanded={expanded}>
-                        <Container id="container">
-                            <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={() => setExpanded(expanded ? false : "expanded")}/>
-                            <NavbarCollapse className="colpaseColumn" id="responsive-navbar-nav">
-                                <NavLink to="/" onClick={() => setExpanded(false)} className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>Home</li></NavLink>
-                                {menu.map(elemento => <NavLink onClick={() => setExpanded(false)} key={elemento.id} to={`/category/${elemento.nombre}`}  className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>{`${elemento.nombre}s`}</li></NavLink>)}
-                            </NavbarCollapse>
-                        </Container> 
-                    </Navbar> 
+                            <Container id="container">
+                                <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={() => setExpanded(expanded ? false : "expanded")}/>
+                                    <NavbarCollapse className="colpaseColumn" id="responsive-navbar-nav">
+                                        <NavLink to="/" onClick={() => setExpanded(false)} className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>Home</li></NavLink>
+                                        {menu.map(elemento => <NavLink onClick={() => setExpanded(false)} key={elemento.id} to={`/category/${elemento.nombre}`}  className={ ({isActive}) => isActive ? 'footerActivo' : undefined}><li>{`${elemento.nombre}s`}</li></NavLink>)}
+                                    </NavbarCollapse>
+                            </Container> 
+                        </Navbar> 
                         </ul>
                     </div>
                         

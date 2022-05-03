@@ -34,6 +34,8 @@ const   ItemListContainer = ({saludo}) => {
 
     },[id])
 
+    console.log(products)
+
     if(loading){
 
         return (

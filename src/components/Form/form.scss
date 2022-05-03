@@ -64,7 +64,6 @@
     color: black;
     z-index: 1;
 
-
     &:before, &:before, &:before {
         content: "";
         position: absolute;
@@ -121,7 +120,6 @@
 
 @media screen and (min-width: 481px) and (max-width: 768px){
 
-
     .buttomSubmit {
 
         width: 27%;
@@ -158,14 +156,11 @@
 }
 @media screen and (min-width: 320px) and (max-width: 480px){
 
-
-    
-
     .buttomForm{
 
-        margin: 11px 18px;
-        
+        margin: 11px 18px; 
     }
+
     .buttomSubmit {
 
         width: 40%;
@@ -195,16 +190,13 @@
         }
     }
 }
+
 @media screen and (max-width: 319px){
-
-
-    
 
     .buttomForm{
 
         margin: 11px 18px;
-        width: 80%;
-        
+        width: 80%; 
     }
     
     .buttomSubmit {
@@ -236,6 +228,3 @@
         }
     }
 }
-
-
-   

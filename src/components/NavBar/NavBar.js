@@ -21,7 +21,6 @@ const NavBar = () => {
     const [menu, setMenu] = useState([])
     const [expanded, setExpanded] = useState(false);
 
-  
     useEffect(() => {
 
         getNavbar().then( (items) =>{
@@ -53,7 +52,6 @@ const NavBar = () => {
 
             <nav className="navBar">
             
-          
                 <ul className="menuNav">
 
                     <Navbar collapseOnSelect expand="lg" expanded={expanded}>

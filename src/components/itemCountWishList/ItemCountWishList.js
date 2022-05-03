@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "./ItemCountWishList.scss"
 import Context from '../../context/CartContext';
 import { useContext } from "react";
 import NotificationContext from "../../context/NotificationContext";

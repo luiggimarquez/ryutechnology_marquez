@@ -10,7 +10,6 @@
         display: flex;
         justify-content: center;
         color: lightseagreen;
-    
     }
 
     .titlesContainer {
@@ -25,7 +24,6 @@
             margin-top: 1rem;
             margin-bottom: 1rem;
         }
-       
     }
 
     .articleContainer {
@@ -35,7 +33,6 @@
         width: 100%;
         background: #008b8b4d;
        
-
         .columnasItem{
 
             text-align: center;
@@ -58,7 +55,6 @@
                 overflow: hidden;
                 color: black;
                 z-index: 1;
-
 
                 &:before {
                     content: "";
@@ -124,7 +120,6 @@
         overflow: hidden;
         color: black;
         z-index: 1;
-
 
         &:before {
             content: "";
@@ -199,11 +194,9 @@
         width: 100%;
         color:snow;
     }
-
 }
 
 @media screen and (min-width: 481px) and (max-width: 769px){
-
 
     .contenedorGeneral{
         
@@ -216,7 +209,6 @@
 
 @media screen and (min-width: 320px) and (max-width: 480px){
 
-
     .contenedorGeneral{
         
         .borrarCarrito {
@@ -228,7 +220,6 @@
 
 @media screen and (max-width: 319px){
 
-    
     .contenedorGeneral{
         
         .borrarCarrito {
@@ -258,7 +249,4 @@
             }
         }
     }
-
-    
 }
-

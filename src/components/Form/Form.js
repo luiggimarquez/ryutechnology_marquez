@@ -57,7 +57,6 @@ const Form = () => {
                     <div className="formContainer">
 
                         <h2>Ryu Tech - Login</h2>
-
                         <form className="formularioContacto" id="formContacto"> 
                             
                             <input onChange={(e) => setMail(e.target.value) } type="email" placeholder="Mail" name="mail" required />
@@ -65,7 +64,6 @@ const Form = () => {
                             <button className="buttomForm" type="submit" name="submit" onClick={(e) =>{ e.preventDefault(); login(mail, password);}}>Enviar</button>
                             <button className="buttomForm"  type="reset" value="Restablecer">Restablecer</button>
 
-                            
                         </form>
 
                     </div>
@@ -104,7 +102,6 @@ const Form = () => {
 
             </div>           
         }
-        
     </>)
 }
 
