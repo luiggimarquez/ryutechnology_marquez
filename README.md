@@ -26,7 +26,7 @@ Estas instrucciones están hechas para **Visual Studio Code**, con el cual lo re
 
 * En el Visual Studio Code úbicate en el directorio donde vas a colocar el proyecto
 
-* Clona el proyecto con `npm clone` + la dirección copiada de git `https://github.com/luiggimarquez/ryutechnology_marquez` en TERMINAL (Ctrl + ñ)
+* Clona el proyecto con `git clone` + la dirección copiada de git `https://github.com/luiggimarquez/ryutechnology_marquez` en TERMINAL (Ctrl + ñ)
 
 * Instala las dependencias **npm** del proyecto ubicándote en el path donde se encuentra nuestro **package.json** con: `npm install`
 
