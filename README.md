@@ -100,7 +100,7 @@ REACT_APP_appId=
 ```
 Notese que los valores llevan un `=` y no tienen comillas. Deben iniciar con `REACT_APP_`
 
-el archivo .env va en el mismo directorio del **package.json**. En el directorio raíz esta un archivo .env.example con los nombres de las variables, ahí se agregan en el caso de usar **Firebase** los datos de nuestra cuenta de Firebase `apiKey,authDomain,projectId,storageBucket, messagingSenderId y appId` y guardándolo como un `.env`; otra alternativa, pero no aconsejable poprque estos datos son sensibles y no deberían estar públicos, es cambiar directamente los valores en **IndexFirebase**
+el archivo .env va en el mismo directorio del **package.json**. En el directorio raíz esta un archivo .env.example con los nombres de las variables, ahí se agregan en el caso de usar **Firebase** los datos de nuestra cuenta de Firebase `apiKey, authDomain, projectId, storageBucket, messagingSenderId y appId` y guardándolo como un `.env`; otra alternativa, pero no aconsejable porque estos datos son sensibles y no deberían estar públicos, es cambiar directamente los valores en **IndexFirebase**
 
 ![firebase config](./public/img/firebaseconfig.jpg)
 
