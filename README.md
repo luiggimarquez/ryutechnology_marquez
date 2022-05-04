@@ -222,7 +222,7 @@ Aquí se muestran todos los atributos del objeto, se muestra el stock disponible
 
 Hace uso del menu `NavCollapse` de `react-bootstrap` para el menú Burger en responsive.
 
-![navbar](./public/img/navresponsive.jpg)
+![navbar responsive](./public/img/navbarresponsive.jpg)
 
 
 - **Ordersjs**: Este componente es llamado desde **Form.js** y su función es consultar las ordenes de compra hechas por el usuario logueado, si no hay usuario, lanza una animación de  
