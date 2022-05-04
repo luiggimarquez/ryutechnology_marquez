@@ -9,8 +9,8 @@ import { setLimitItemCount } from "../../services/Firestore";
 const ItemCount = ({initial = 1, OnAdd}) => {
 
     const [stock, setStock] = useState([]);
-    const [count,setCount] = useState(initial); //contador de los botones
-    const [carrito,setCarrito] = useState([]); //contador de la cantidad de stock
+    const [count,setCount] = useState(initial);
+    const [carrito,setCarrito] = useState([]); 
     const { id } = useParams()
     const { cart } = useContext(Context)
     const { setNotification } = useContext(NotificationContext)

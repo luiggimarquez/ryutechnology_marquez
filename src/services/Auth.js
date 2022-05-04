@@ -33,7 +33,6 @@ export const userRegisterFirebase = (name, password, phone, mail) =>{
             reject (error)  
         }); 
     })
-
 }
 
 export const userLoginFirebase = (mail, password) => {
@@ -50,10 +49,7 @@ export const userLoginFirebase = (mail, password) => {
 
             reject(error)
         })
-
-
     })
-
 }
 
 export const userSignOutFirebase = () => {

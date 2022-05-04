@@ -45,7 +45,7 @@ const   ItemListContainer = ({saludo}) => {
         )
     }
 
-    const options = { //parametros de animacion Lottie para cuando se coloque una categoria que no existe en el URL
+    const options = {
 
         animationData: itemNotFound,
         autoplay: true,

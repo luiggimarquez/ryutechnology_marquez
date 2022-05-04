@@ -64,7 +64,6 @@ export const createOrderAndUpdateStock = (cart, objOrder) => {
 
     return new Promise ((resolve, reject) =>{
 
-        
         const batch = writeBatch(firestoreDb)
         const outOfStock = []
         const ids = cart.map(item => item.id)
@@ -109,11 +108,7 @@ export const createOrderAndUpdateStock = (cart, objOrder) => {
 
             reject(error)
         })
-
-
     })
-
-
 }
 
 export const setLimitItemCount = (id) => {
@@ -169,5 +164,4 @@ export const getWishList = (userId) => {
             reject(error)
         })
     })
-
 }
