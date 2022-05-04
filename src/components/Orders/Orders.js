@@ -90,7 +90,7 @@ const Orders = () => {
                 
                     resultado.map( ele =><div key={ele.id} className="orderContainer">
                     
-                    <p>ID de Compra: {ele.id}</p>
+                    <p>ID de Compra: <b>{ele.id}</b></p>
                     <p>Total de la compra: {ele.total} USD</p>
                 
                     {ele.items.map( elemento =>{
@@ -114,8 +114,8 @@ const Orders = () => {
 
                         {((resultado.find(elemento => elemento.id === search)) !== undefined ) &&
 
-                            <><p>ID consultado: {resultado.find(elemento => elemento.id === search).id}</p>
-                            <p>Total de la compra: {resultado.find(elemento => elemento.id === search).total}</p></>
+                            <><p>ID consultado: <b>{resultado.find(elemento => elemento.id === search).id}</b></p>
+                            <p>Total de la compra: {resultado.find(elemento => elemento.id === search).total} USD</p></>
                         }
                         {consultId(resultado)}
                         

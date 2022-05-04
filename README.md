@@ -15,7 +15,7 @@ El proyecto está formado por 4 categorías de productos:  cámaras, switchs, ro
 ### Pre-requisitos 📋
 
 Este es un proyecto de React.Js, por lo que para poder visualizarlo y/o modificarlo necesitas instalar node.js.
-Puedes utilizar Visual Studio Code o Sublime Text para revisarlo 🔧
+Puedes utilizar Visual Studio Code o Sublime Text para revisarlo 🔧, adicional debes tener una base de datos para configurar el proyecto.
 
 ### Instalación 
 
@@ -88,6 +88,23 @@ La página se recargará cada vez que guardes cambios (CTRL + S) y podrás visua
 
 * La base de datos, Firestore, esta configurada en la carpeta `/services`, la cual posee tres archivos, **Index.js**, que es donde se configura Firebase. Para este proyecto estos datos son privados, si deseas trabajar con tu propia base datos debes configurarla aquí en `index.js`. El archivo **Firestore.js** contiene las llamadas asíncronas a la base datos, **Firestore** , de aquí se lee y se escribe nuestra base de datos; y el archivo **Auth.js**, posee las configuraciones para registro, login y logout de usuarios con Authentication de Firebase.
 
+* **IndexFirebase.js**: aquí debemos configurar nuestra base de datos, las credenciales están configuradas con variables de entorno, por lo que aquí tenemos las variables con el prefijo `process.env`. En esta parte debes crear un archivo .env en la carpeta raíz de la aplicación y configurar las variables de entorno con el siguiente formato:
+
+```
+REACT_APP_apiKey=
+REACT_APP_authDomain=
+REACT_APP_projectId=
+REACT_APP_storageBucket=
+REACT_APP_messagingSenderId=
+REACT_APP_appId=
+```
+Notese que los valores llevan un `=` y no tienen comillas. Deben iniciar con `REACT_APP_`
+
+el archivo .env va en el mismo directorio del **package.json**. En el directorio raíz esta un archivo .env.example con los nombres de las variables, ahí se agregan en el caso de usar **Firebase** los datos de nuestra cuenta de Firebase `apiKey,authDomain,projectId,storageBucket, messagingSenderId y appId` y guardándolo como un `.env`; otra alternativa, pero no aconsejable poprque estos datos son sensibles y no deberían estar públicos, es cambiar directamente los valores en **IndexFirebase**
+
+![firebase config](./public/img/firebaseconfig.jpg)
+
+Si no se configura estos valores, de una forma u otra, no correrá nuestra app. 
 
 * Nuestro stock es manejado en Firebase como un array de objetos, que tiene la siguiente estructura:
 
@@ -96,7 +113,7 @@ La página se recargará cada vez que guardes cambios (CTRL + S) y podrás visua
 - categoria: (string)
 - detalle: (string)
 - id: (string)
-- img: "/img/example.jpg"
+- img: "/img/example.jpg" (string)
 - marca: (string)
 - nombre: (string)
 - precio: (number)
@@ -107,7 +124,7 @@ La página se recargará cada vez que guardes cambios (CTRL + S) y podrás visua
 
 * La autenticación está establecida en Firebase como `Correo electrónico/contraseña`
 
-* **ProductsAdapters.js**: `adapters` se utiliza para convertir nuestros datos adquiridos de Firebase a variables más amigables para nuestra manipulación, globalizando en nuestra app un formato local independiente al Firebase, es decir, podemos optimizar futuros cambios en nuestra base de datos de forma rápida, solo cambiando nuestro Adapter sin tener que realizar otro cambio en toda nuestra aplicación.
+* **ProductsAdapters.js** y **ProductOrdersAdapter.js**: `adapters` se utiliza para convertir nuestros datos adquiridos de Firebase a variables más amigables para nuestra manipulación, globalizando en nuestra app un formato local independiente al Firebase, es decir, podemos optimizar futuros cambios en nuestra base de datos de forma rápida, solo cambiando nuestro Adapter sin tener que realizar otro cambio en toda nuestra aplicación.
 
 * En **App.js** ocurren todos los enrutamientos de nuestra página mediante `react-router-dom` así como el llamado a todos nuestros `Context`. Hay una ruta por defecto por si se ingresa un URL inválido y es capturado por una animación con `Lottie`:
 

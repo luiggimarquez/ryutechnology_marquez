@@ -1,6 +1,7 @@
 import { collection, getDocs,query, where, doc, getDoc, writeBatch, documentId, addDoc} from "firebase/firestore";
 import { firestoreDb } from "./IndexFirebase";
 import { createAdapterProduct } from "../adapters/ProductAdapters";
+import { createAdapterProductOrders } from "../adapters/ProductOrdersAdapter";
 
 
 export const getProducts = (id) =>{
@@ -137,7 +138,7 @@ export const createPurchaseOrder = (userId) => {
 
             const items = querySnapshot.docs.map(doc => {
 
-                return{ id: doc.id, ...doc.data() }
+                return createAdapterProductOrders(doc)
             })
             resolve(items)
         }).catch((error) =>{
@@ -147,21 +148,3 @@ export const createPurchaseOrder = (userId) => {
     })
 }
 
-export const getWishList = (userId) => {
-
-    return new Promise ((resolve, reject) => { 
-        
-        const collectionRef = query(collection(firestoreDb,'wish'), where('user','==',userId) )
-        getDocs(collectionRef).then(querySnapshot =>{
-
-            const items = querySnapshot.docs.map(doc => {
-
-                return{ id: doc.id, ...doc.data() }
-            })
-            resolve(items)
-        }).catch((error) =>{
-
-            reject(error)
-        })
-    })
-}
