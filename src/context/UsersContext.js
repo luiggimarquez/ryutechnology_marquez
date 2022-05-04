@@ -2,7 +2,7 @@ import { onAuthStateChanged, getAuth, setPersistence, browserLocalPersistence } 
 import { userLoginFirebase, userRegisterFirebase, userSignOutFirebase } from "../services/Auth";
 import NotificationContext from "./NotificationContext";
 import { useContext, useState, useEffect } from "react"
-import { app } from "../services/Index"
+import { app } from "../services/IndexFirebase"
 import { createContext } from "react";
 
 const UserContext = createContext();

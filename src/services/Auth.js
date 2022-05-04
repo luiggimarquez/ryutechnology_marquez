@@ -1,5 +1,5 @@
 import {getAuth, createUserWithEmailAndPassword,signOut, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { app } from "./Index"
+import { app } from "./IndexFirebase"
 
 const auth = getAuth(app);
 

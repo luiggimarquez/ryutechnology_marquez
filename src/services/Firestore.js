@@ -1,5 +1,5 @@
 import { collection, getDocs,query, where, doc, getDoc, writeBatch, documentId, addDoc} from "firebase/firestore";
-import { firestoreDb } from "./Index";
+import { firestoreDb } from "./IndexFirebase";
 import { createAdapterProduct } from "../adapters/ProductAdapters";
 
 
