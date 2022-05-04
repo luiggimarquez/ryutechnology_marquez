@@ -1,4 +1,4 @@
-import "./itemListContainer.scss"
+import "./ItemListContainer.scss"
 import ItemList from "../ItemList/ItemList"
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -33,8 +33,6 @@ const   ItemListContainer = ({saludo}) => {
         }) 
 
     },[id])
-
-    console.log(products)
 
     if(loading){
 

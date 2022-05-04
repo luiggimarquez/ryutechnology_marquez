@@ -1,4 +1,4 @@
-import "./footer.scss";
+import "./Footer.scss";
 import logo1 from "./RRSS/logo1.png"
 import instagram from "./RRSS/instagram.png"
 import twitter from "./RRSS/twitter.png"

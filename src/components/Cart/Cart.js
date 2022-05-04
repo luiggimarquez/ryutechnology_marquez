@@ -1,4 +1,4 @@
-import "./cart.scss"
+import "./Cart.scss"
 import { useContext } from "react";
 import Context from '../../context/CartContext';
 import { Link, useNavigate } from "react-router-dom"

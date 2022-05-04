@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./itemCount.scss"
+import "./ItemCount.scss"
 import { useParams } from "react-router-dom";
 import Context from '../../context/CartContext';
 import { useContext } from "react";

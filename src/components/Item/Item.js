@@ -1,4 +1,4 @@
-import "./item.scss"
+import "./Item.scss"
 import { Link } from "react-router-dom"
 
 const Item = (productos2) =>{

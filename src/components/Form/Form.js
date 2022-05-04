@@ -1,4 +1,4 @@
-import "./form.scss"
+import "./Form.scss"
 import { useState, useEffect } from "react"
 import { useContext } from "react";
 import UserContext from '../../context/UsersContext';

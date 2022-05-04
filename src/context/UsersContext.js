@@ -1,4 +1,4 @@
-import {onAuthStateChanged, getAuth, setPersistence, browserLocalPersistence } from "firebase/auth";
+import { onAuthStateChanged, getAuth, setPersistence, browserLocalPersistence } from "firebase/auth";
 import { userLoginFirebase, userRegisterFirebase, userSignOutFirebase } from "../services/Auth";
 import NotificationContext from "./NotificationContext";
 import { useContext, useState, useEffect } from "react"
